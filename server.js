@@ -17,7 +17,8 @@ const gpu = require('./models/gpu.js');
 const User = require('./models/user.js');
 
 //Port
-const port = 3000;
+const port = process.env.PORT || 3000;
+const mongoURI = process.MONGODB_URI || 'mongodb://localhost:27017/pcbuilder';
 
 //Middleware
 app.use(express.static('public'));
@@ -107,7 +108,7 @@ app.listen(port, () => {
   console.log('Up on running on ' + port);
 });
 
-mongoose.connect('mongodb://localhost:27017/pcbuilder');
+mongoose.connect(mongoURI);
 mongoose.connection.once('open', () => {
   console.log('connected to mongo');
 });
