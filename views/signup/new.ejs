@@ -5,28 +5,43 @@
   <% include ../partials/head %>
 
   <style media="screen">
-
+    body{
+      background: url(imgs/background.jpg) no-repeat;
+      background-size: cover;
+    }
   </style>
 </head>
-<body>
+<body >
 
   <% include ../partials/nav %>
 
-  <div class="top-text orange lighten-3">
+  <!-- <div class="top-text orange lighten-3">
     <div class="container">
         <h4>Sign Up!</h4>
     </div>
-  </div>
+  </div> -->
 
     <!--   Main Container   -->
-  <div class="container">
+  <div class="container center-align">
     <div class="section">
-      <div class="row" style="padding:60px 0px 60px 0px;">
-        <form class="col s4" action="/signup/new" method="POST">
+      <div class="row" style="padding:80px 0px 60px 0px;">
+        <div class="col l4 m12">
+        </div>
+        <form class="col l4 m12" action="/signup/new" method="POST">
           <div class="row">
             <div class="card blue-grey darken-1">
-              <div class="card-content white-text" style="height:340px">
+              <div class="card-content white-text" style="height:510px">
                 <h4>Create Account</h4>
+                <div class="input-field col s12">
+                  <i class="material-icons prefix">account_circle</i>
+                  <input type="text">
+                  <label for="icon_prefix">First Name</label>
+                </div>
+                <div class="input-field col s12">
+                  <i class="material-icons prefix">account_circle</i>
+                  <input type="text">
+                  <label for="icon_prefix">Last Name</label>
+                </div>
                 <div class="input-field col s12">
                   <i class="material-icons prefix">account_circle</i>
                   <input type="text" name="username" required>

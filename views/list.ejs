@@ -34,7 +34,7 @@
            <tbody>
              <tr>
                <td>CPU</td>
-               <% if(cpu){ %>
+               <% if(cpu != undefined){ %>
                  <td>
                      <%= cpu.make %> <%= cpu.name %> <a href="/products/cpu">change</a>
                  </td>
@@ -44,8 +44,8 @@
                </td>
                <% } %>
                <td></td>
-               <% if(cpu){ %>
-                  <td><a class="waves-effect waves-light blue lighten-1 btn" href="<%= cpu.amazonlink %>" target="_target">Buy</a></td>
+               <% if(cpu !=  undefined){ %>
+                  <td><a class="waves-effect waves-light blue lighten-1 btn" href="#" target="_target">Buy</a></td>
                <% }else { %>
                <td>
                </td>
@@ -78,9 +78,9 @@
              </tr>
              <tr>
                <td>GPU</td>
-               <% if(gpu){ %>
+               <% if(gpu !=  undefined){ %>
                  <td>
-                     <%= gpu.make %> <%= gpu.name %> <a href="/products/cpu">change</a>
+                     <%= gpu.make %> <%= gpu.name %> <a href="/products/gpu">change</a>
                  </td>
                <% }else { %>
                <td>
@@ -88,7 +88,12 @@
                </td>
                <% } %>
                <td></td>
-               <td></td>
+               <% if(gpu !=  undefined){ %>
+                  <td><a class="waves-effect waves-light blue lighten-1 btn" href="#" target="_target">Buy</a></td>
+               <% }else { %>
+               <td>
+               </td>
+               <% } %>
              </tr>
              <tr>
                <td>Storage</td>
@@ -112,6 +117,12 @@
                  <a class="waves-effect waves-light blue lighten-1 btn" href="/products/case">Choose Case</a>
                </td>
                <td></td>
+               <td></td>
+             </tr>
+             <tr>
+               <td>Total</td>
+               <td></td>
+               <td>$</td>
                <td></td>
              </tr>
            </tbody>

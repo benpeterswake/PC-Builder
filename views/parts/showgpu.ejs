@@ -37,7 +37,7 @@
                   <td><%= gpu[i].tdp %></td>
                   <td></td>
                   <td>
-                    <form action="/products/gpu/<%= gpu[i].id %>?_method=PUT" method="POST">
+                    <form action="/products/gpu/<%= gpu[i].name %>/<%= gpu[i].make %>/<%= gpu[i]._id %>?_method=PUT" method="POST">
                       <input type="submit" value="Add">
                     </form>
                   </td>

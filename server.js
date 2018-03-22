@@ -15,6 +15,7 @@ const signupController = require('./controllers/signup.js')
 const cpu = require('./models/cpu.js');
 const gpu = require('./models/gpu.js');
 const User = require('./models/user.js');
+const List = require('./models/list.js');
 
 //Port
 const port = process.env.PORT || 3000;
@@ -42,18 +43,23 @@ app.get('/', (req, res) => {
 
 app.get('/list', (req, res) => {
   if(req.session.currentUser){
-    cpu.findById(req.session.currentUser.currentList.cpu, (err, cpu) => {
-      gpu.findById(req.session.currentUser.currentList.gpu, (err, gpu) => {
-        res.render('list.ejs', {
-          user: req.session.currentUser,
-          cpu,
-          gpu
-        });
-      })
+    List.findOne({user_id: req.session.currentUser._id}, (err, userlist) => {
+      console.log(userlist.gpu);
+      res.render('list.ejs', {
+        user: req.session.currentUser,
+        cpu: userlist.cpu,
+        gpu: userlist.gpu
+      });
     });
   }else{
     res.redirect('/login')
   }
+});
+
+app.get('/success', (req, res) => {
+  res.render('success.ejs', {
+    user: req.session.currentUser,
+  });
 });
 
 app.get('/products/cpu', (req, res) => {
@@ -74,22 +80,22 @@ app.get('/products/gpu', (req, res) => {
   });
 });
 
-app.put('/products/cpu/:cpu', (req, res) => {
-  User.findOneAndUpdate(
-    {_id: req.session.currentUser._id},
-    { $set: { currentList: {cpu: req.params.cpu } } },
-    (err, data) => {
-      res.redirect('/list')
-    });
+app.put('/products/cpu/:name/:make/:id', (req, res) => {
+      List.findOneAndUpdate(
+        {user_id: req.session.currentUser._id},
+        { $set: {cpu: { name: req.params.name, make: req.params.make, cpu_id: req.params.id} } },
+        (err, data) => {
+          res.redirect('/list')
+      });
 });
 
-app.put('/products/gpu/:gpu', (req, res) => {
-  User.findOneAndUpdate(
-    {_id: req.session.currentUser._id},
-    { $set: { currentList: {gpu: req.params.gpu } } },
-    (err, data) => {
-      res.redirect('/list')
-    });
+app.put('/products/gpu/:name/:make/:id', (req, res) => {
+      List.findOneAndUpdate(
+        {user_id: req.session.currentUser._id},
+        { $set: {gpu: { name: req.params.name, make: req.params.make, gpu_id: req.params.id} } },
+        (err, data) => {
+          res.redirect('/list')
+      });
 });
 
 const seed = require('./models/seed.js');
