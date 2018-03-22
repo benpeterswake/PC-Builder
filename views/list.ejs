@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <% include ./partials/head %>
+
+  <style media="screen">
+  </style>
+</head>
+<body>
+
+  <% include ./partials/nav %>
+    <% if(user) { %>
+  <div class="top-text orange lighten-3">
+    <div class="container">
+        <h4>Current Part List</h4>
+    </div>
+  </div>
+  <% } %>
+    <!--   Main Container   -->
+  <div class="container">
+    <div class="section">
+      <% if(user) { %>
+      <div class="row" style="padding:40px 0px 60px 0px">
+          <table class="striped">
+           <thead>
+             <tr>
+                 <th>Part</th>
+                 <th>Select</th>
+                 <th>Price (USD)</th>
+                 <th>Link</th>
+             </tr>
+           </thead>
+           <tbody>
+             <tr>
+               <td>CPU</td>
+               <% if(cpu){ %>
+                 <td>
+                     <%= cpu.make %> <%= cpu.name %> <a href="/products/cpu">change</a>
+                 </td>
+               <% }else { %>
+               <td>
+                   <a class="waves-effect waves-light blue lighten-1 btn" href="/products/cpu">Choose CPU</a>
+               </td>
+               <% } %>
+               <td></td>
+               <% if(cpu){ %>
+                  <td><a class="waves-effect waves-light blue lighten-1 btn" href="<%= cpu.amazonlink %>" target="_target">Buy</a></td>
+               <% }else { %>
+               <td>
+               </td>
+               <% } %>
+
+             </tr>
+             <tr>
+               <td>CPU Cooler</td>
+               <td>
+                 <a class="waves-effect waves-light blue lighten-1 btn" href="/products/cpu-cooler">Choose Cooler</a>
+               </td>
+               <td></td>
+               <td></td>
+             </tr>
+             <tr>
+               <td>Motherboard</td>
+               <td>
+                 <a class="waves-effect waves-light blue lighten-1 btn" href="/products/motherboard">Choose Motherboard</a>
+               </td>
+               <td></td>
+               <td></td>
+             </tr>
+             <tr>
+               <td>RAM</td>
+               <td>
+                 <a class="waves-effect waves-light blue lighten-1 btn" href="/products/ram">Choose RAM</a>
+               </td>
+               <td></td>
+               <td></td>
+             </tr>
+             <tr>
+               <td>GPU</td>
+               <% if(gpu){ %>
+                 <td>
+                     <%= gpu.make %> <%= gpu.name %> <a href="/products/cpu">change</a>
+                 </td>
+               <% }else { %>
+               <td>
+                   <a class="waves-effect waves-light blue lighten-1 btn" href="/products/gpu">Choose GPU</a>
+               </td>
+               <% } %>
+               <td></td>
+               <td></td>
+             </tr>
+             <tr>
+               <td>Storage</td>
+               <td>
+                 <a class="waves-effect waves-light blue lighten-1 btn" href="/products/storage">Choose Storage</a>
+               </td>
+               <td></td>
+               <td></td>
+             </tr>
+             <tr>
+               <td>Power Supply</td>
+               <td>
+                 <a class="waves-effect waves-light blue lighten-1 btn" href="/products/psu">Choose PSU</a>
+               </td>
+               <td></td>
+               <td></td>
+             </tr>
+             <tr>
+               <td>Case</td>
+               <td>
+                 <a class="waves-effect waves-light blue lighten-1 btn" href="/products/case">Choose Case</a>
+               </td>
+               <td></td>
+               <td></td>
+             </tr>
+           </tbody>
+         </table>
+        </div>
+
+        <% }else{ %>
+        <div class="row" style="padding:100px 0px 70px 0px">
+          <!--  Signup Section   -->
+          <h3 class="header center blue-text">Login or Sign Up To Start Building!</h3>
+          <div class="row" style="padding-top:30px; color:blue">
+            <div class="col s12 m12 center-align ">
+              <a href="/signup" class="waves-effect blue lighten-1 btn"><i class="material-icons left">add_circle</i>Sign Up!</a>
+                  <a href="/login" class="waves-effect orange lighten-1 btn"><i class="material-icons left">check</i>Login!</a>
+            </div>
+           </div>
+         </div>
+        <% } %>
+
+    </div>
+  <br><br>
+  </div> <!--Main container closed !-->
+  <!--  Signup Section   -->
+  <div class="section orange lighten-1" style="width:100%;">
+    <h3 class="header center white-text">View Completed Builds!</h3>
+    <div class="row" style="padding-top:30px">
+      <div class="col s12 m12 center-align">
+        <a class="waves-effect blue lighten-1 btn"><i class="material-icons left">check</i>Completed Builds</a>
+      </div>
+    </div>
+  </div>
+
+
+    <% include ./partials/footer %>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>

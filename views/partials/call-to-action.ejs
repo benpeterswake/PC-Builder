@@ -1,0 +1,22 @@
+
+  <% if(user) { %>
+    <!--  Signup Section   -->
+    <div class="section orange lighten-1" style="width:100%;">
+      <h3 class="header center white-text">Start Building!</h3>
+      <div class="row" style="padding-top:30px">
+        <div class="col s12 m12 center-align">
+          <a href="/list" class="waves-effect blue lighten-1 btn"><i class="material-icons left">add_circle</i>Build</a>
+        </div>
+      </div>
+    </div>
+  <% }else{ %>
+    <!--  Signup Section   -->
+    <div class="section orange lighten-1" style="width:100%;">
+      <h3 class="header center white-text">Sign Up & Start Building!</h3>
+      <div class="row" style="padding-top:30px">
+        <div class="col s12 m12 center-align">
+          <a href="/signup" class="waves-effect blue lighten-1 btn"><i class="material-icons left">add_circle</i>Sign Up!</a>
+        </div>
+      </div>
+    </div>
+  <% } %>

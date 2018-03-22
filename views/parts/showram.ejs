@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <body>
+
+    <% include ../partials/nav %>
+
+    <div class="top-text orange lighten-3">
+      <div class="container">
+          <h4>Choose CPU</h4>
+      </div>
+    </div>
+
+      <!--   Main Container   -->
+    <div class="container">
+      <div class="section">
+        <div class="row" style="padding:40px 0px 60px 0px">
+          <table class="striped">
+            <thead>
+                <tr>
+                    <th>CPU</th>
+                    <th>Base Clock</th>
+                    <th>Cores</th>
+                    <th>TDP</th>
+                    <th>Price</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+              <% for(let i=0; i<cpu.length; i++){ %>
+                <tr>
+                  <td><%= cpu[i].make %> <%= cpu[i].name %></td>
+                  <td><%= cpu[i].baseclock %></td>
+                  <td><%= cpu[i].cores %></td>
+                  <td><%= cpu[i].tdp %></td>
+                  <td></td>
+                  <td>
+                    <form action="#" method="POST">
+                      <input type="submit" value="Add">
+                    </form>
+                  </td>
+                </tr>
+              <% } %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+      <% include ../partials/footer %>
+  </body>
+</html>

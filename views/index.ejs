@@ -1,10 +1,155 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  Home
+<html lang="en">
+<head>
+
+  <% include ./partials/head %>
+
+  <style media="screen">
+
+  </style>
+</head>
+<body>
+
+  <% include ./partials/nav %>
+
+  <div class="section no-pad-bot" id="index-banner" >
+    <div class="container">
+      <br><br>
+      <h1 class="header center white-text">Build Your Custom Computer</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">COMPARE PARTS - BUILD YOUR LIST - BUY YOUR DREAM COMPUTER</h5>
+      </div>
+      <div class="row center">
+        <a href="/list" id="download-button" class="btn-large waves-effect waves-light orange">Get Started</a>
+      </div>
+      <br><br>
+    </div>
+  </div>
+    <!--   Main Container   -->
+  <div class="container">
+    <div class="section">
+      <div class="row" style="padding:40px 0px 60px 0px">
+        <div class="col s12 m6">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">Learn To Build a Computer</span>
+              <p>I am a very simple card. I am good at containing small bits of information.
+              I am convenient because I require little markup to use effectively.</p>
+            </div>
+            <div class="card-action">
+              <a href="#">Learn More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col s12 m6">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">View Completed Builds</span>
+              <p>I am a very simple card. I am good at containing small bits of information.
+              I am convenient because I require little markup to use effectively.</p>
+            </div>
+            <div class="card-action">
+              <a href="#">View All</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--   Last Post Section   -->
+      <h3 class="header center grey-text">Lastest Posts</h3>
+      <div class="row" style="padding-top:40px">
+        <div class="col s12 m4">
+          <div class="card">
+            <div class="card-image">
+              <img src="https://i.ytimg.com/vi/OA3Cg3fQlNI/maxresdefault.jpg">
+              <span class="card-title">Card Title</span>
+            </div>
+            <div class="card-content">
+              <p>I am a very simple card. I am good at containing small bits of information.
+              I am convenient because I require little markup to use effectively.</p>
+            </div>
+            <div class="card-action">
+              <a href="#">This is a link</a>
+            </div>
+          </div>
+        </div>
+        <div class="col s12 m4">
+          <div class="card">
+            <div class="card-image">
+              <img src="https://i.ytimg.com/vi/OA3Cg3fQlNI/maxresdefault.jpg">
+              <span class="card-title">Card Title</span>
+            </div>
+            <div class="card-content">
+              <p>I am a very simple card. I am good at containing small bits of information.
+              I am convenient because I require little markup to use effectively.</p>
+            </div>
+            <div class="card-action">
+              <a href="#">This is a link</a>
+            </div>
+          </div>
+        </div>
+        <div class="col s12 m4">
+          <div class="card">
+            <div class="card-image">
+              <img src="https://i.ytimg.com/vi/OA3Cg3fQlNI/maxresdefault.jpg">
+              <span class="card-title">Card Title</span>
+            </div>
+            <div class="card-content">
+              <p>I am a very simple card. I am good at containing small bits of information.
+              I am convenient because I require little markup to use effectively.</p>
+            </div>
+            <div class="card-action">
+              <a href="#">This is a link</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <!--   Benckmark Section   -->
+    <div class="section">
+      <h3 class="header center grey-text">Lastest Benchmarks</h3>
+      <div class="row" style="padding-top:40px">
+        <div class="col s12 m12">
+          <ul class="collapsible" data-collapsible="accordion">
+            <li>
+                <div class="collapsible-header">
+                  <i class="material-icons">filter_drama</i>
+                  CPU
+                  <span class="new blue lighten-1 badge">4</span></div>
+                <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+              </li>
+              <li>
+                <div class="collapsible-header">
+                  <i class="material-icons">place</i>
+                  GPU
+                  <span class="new blue lighten-1 badge">19</span>
+                </div>
+              <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+            </li>
+            <li>
+              <div class="collapsible-header">
+                <i class="material-icons">place</i>
+                Completed Builds
+                <span class="new blue lighten-1 badge">9</span>
+              </div>
+              <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <br><br>
+  </div> <!--Main container closed !-->
+
+  <% include ./partials/call-to-action %>
+
+  <% include ./partials/footer %>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
 
   </body>
 </html>
