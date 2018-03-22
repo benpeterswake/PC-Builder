@@ -9,7 +9,7 @@
 
     <div class="top-text orange lighten-3">
       <div class="container">
-          <h4>Choose CPU</h4>
+          <h4>Choose CPU Cooler</h4>
       </div>
     </div>
 
@@ -20,24 +20,22 @@
           <table class="striped">
             <thead>
                 <tr>
-                    <th>CPU</th>
-                    <th>Base Clock</th>
-                    <th>Cores</th>
-                    <th>TDP</th>
+                    <th>CPU Cooler</th>
+                    <th>Fan Speed</th>
+                    <th>Noise Level</th>
                     <th>Price</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-              <% for(let i=0; i<cpu.length; i++){ %>
+              <% for(let i=0; i<cooler.length; i++){ %>
                 <tr>
-                  <td><%= cpu[i].make %> <%= cpu[i].name %></td>
-                  <td><%= cpu[i].baseclock %></td>
-                  <td><%= cpu[i].cores %></td>
-                  <td><%= cpu[i].tdp %></td>
+                  <td><%= cooler[i].make %> <%= cooler[i].name %></td>
+                  <td><%= cooler[i].speed %></td>
+                  <td><%= cooler[i].noise %></td>
                   <td></td>
                   <td>
-                    <form action="#" method="POST">
+                    <form action="/products/cpu-cooler/<%= cooler[i].name %>/<%= cooler[i].make %>/<%= cooler[i].amazonlink %>/<%= cooler[i]._id %>?_method=PUT" method="POST">
                       <input type="submit" value="Add">
                     </form>
                   </td>

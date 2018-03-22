@@ -21,7 +21,7 @@
   <div class="container">
     <div class="section">
       <% if(user) { %>
-      <div class="row" style="padding:40px 0px 60px 0px">
+      <div class="row" style="padding:60px 0px 60px 0px">
           <table class="striped">
            <thead>
              <tr>
@@ -34,37 +34,54 @@
            <tbody>
              <tr>
                <td>CPU</td>
-               <% if(cpu != undefined){ %>
-                 <td>
-                     <%= cpu.make %> <%= cpu.name %> <a href="/products/cpu">change</a>
-                 </td>
+               <% if(cpu.name != 'none'){ %>
+               <td>
+                   <%= cpu.make %> <%= cpu.name %> <a href="/products/cpu">change</a>
+               </td>
+                <td></td><!-- Price !-->
+                <td><a class="waves-effect waves-light blue lighten-1 btn" href="https://www.amazon.com/dp/<%= cpu.link %>" target="_target">Buy</a></td>
+                <td>
+                  <form action="list/cpu?_method=PUT" method="POST">
+                        <button type="submit" class="btn red lighten-1"><i class="material-icons">delete</i></button>
+                  </form>
+                </td>
                <% }else { %>
                <td>
-                   <a class="waves-effect waves-light blue lighten-1 btn" href="/products/cpu">Choose CPU</a>
+                  <a class="waves-effect waves-light blue lighten-1 btn" href="/products/cpu">Choose CPU</a>
                </td>
-               <% } %>
                <td></td>
-               <% if(cpu !=  undefined){ %>
-                  <td><a class="waves-effect waves-light blue lighten-1 btn" href="#" target="_target">Buy</a></td>
-               <% }else { %>
-               <td>
-               </td>
+               <td></td>
+                <td></td>
                <% } %>
-
              </tr>
              <tr>
                <td>CPU Cooler</td>
+               <% if(cooler.name != undefined){ %>
                <td>
-                 <a class="waves-effect waves-light blue lighten-1 btn" href="/products/cpu-cooler">Choose Cooler</a>
+                   <%= cooler.make %> <%= cooler.name %> <a href="/products/cpu-cooler">change</a>
                </td>
-               <td></td>
-               <td></td>
+                <td></td><!-- Price !-->
+                <td><a class="waves-effect waves-light blue lighten-1 btn" href="https://www.amazon.com/dp/<%= cooler.link %>" target="_target">Buy</a></td>
+                <td>
+                  <form action="list/cooler?_method=PUT" method="POST">
+                        <button type="submit" class="btn red lighten-1"><i class="material-icons">delete</i></button>
+                  </form>
+                </td>
+               <% }else { %>
+                 <td>
+                   <a class="waves-effect waves-light blue lighten-1 btn" href="/products/cpu-cooler">Choose Cooler</a>
+                 </td>
+                 <td></td>
+                 <td></td>
+                 <td></td>
+               <% } %>
              </tr>
              <tr>
                <td>Motherboard</td>
                <td>
                  <a class="waves-effect waves-light blue lighten-1 btn" href="/products/motherboard">Choose Motherboard</a>
                </td>
+               <td></td>
                <td></td>
                <td></td>
              </tr>
@@ -75,24 +92,28 @@
                </td>
                <td></td>
                <td></td>
+               <td></td>
              </tr>
              <tr>
                <td>GPU</td>
-               <% if(gpu !=  undefined){ %>
-                 <td>
-                     <%= gpu.make %> <%= gpu.name %> <a href="/products/gpu">change</a>
-                 </td>
+               <% if(gpu.name != 'none'){ %>
+               <td>
+                   <%= gpu.make %> <%= gpu.name %> <a href="/products/gpu">change</a>
+               </td>
+                <td></td><!-- Price !-->
+                <td><a class="waves-effect waves-light blue lighten-1 btn" href="https://www.amazon.com/dp/<%= gpu.link %>" target="_target">Buy</a></td>
+                <td>
+                  <form action="list/gpu?_method=PUT" method="POST">
+                        <button type="submit" class="btn red lighten-1"><i class="material-icons">delete</i></button>
+                  </form>
+                </td>
                <% }else { %>
                <td>
-                   <a class="waves-effect waves-light blue lighten-1 btn" href="/products/gpu">Choose GPU</a>
+                  <a class="waves-effect waves-light blue lighten-1 btn" href="/products/gpu">Choose GPU</a>
                </td>
-               <% } %>
                <td></td>
-               <% if(gpu !=  undefined){ %>
-                  <td><a class="waves-effect waves-light blue lighten-1 btn" href="#" target="_target">Buy</a></td>
-               <% }else { %>
-               <td>
-               </td>
+               <td></td>
+                <td></td>
                <% } %>
              </tr>
              <tr>
@@ -100,6 +121,7 @@
                <td>
                  <a class="waves-effect waves-light blue lighten-1 btn" href="/products/storage">Choose Storage</a>
                </td>
+               <td></td>
                <td></td>
                <td></td>
              </tr>
@@ -110,6 +132,7 @@
                </td>
                <td></td>
                <td></td>
+               <td></td>
              </tr>
              <tr>
                <td>Case</td>
@@ -118,11 +141,13 @@
                </td>
                <td></td>
                <td></td>
+               <td></td>
              </tr>
              <tr>
-               <td>Total</td>
                <td></td>
-               <td>$</td>
+               <td></td>
+               <td>Total: $</td>
+               <td></td>
                <td></td>
              </tr>
            </tbody>
