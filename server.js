@@ -18,7 +18,7 @@ const User = require('./models/user.js');
 
 //Port
 const port = process.env.PORT || 3000;
-const mongoURI = process.MONGODB_URI || 'mongodb://localhost:27017/pcbuilder';
+const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/pcbuilder';
 
 //Middleware
 app.use(express.static('public'));
