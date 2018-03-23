@@ -39,7 +39,7 @@
                   <td><%= cpu[i].tdp %></td>
                   <td>$<%= cpu[i].price %></td>
                   <td>
-                    <form action="/products/cpu/<%= cpu[i].name %>/<%= cpu[i].make %>/<%= cpu[i].amazonlink %>/<%= cpu[i]._id %>?_method=PUT" method="POST">
+                    <form action="/products/cpu/<%= cpu[i].name %>/<%= cpu[i].make %>/<%= cpu[i].price %>/<%= cpu[i].amazonlink %>/<%= cpu[i]._id %>?_method=PUT" method="POST">
                       <input type="submit" value="Add">
                     </form>
                   </td>

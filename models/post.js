@@ -5,6 +5,7 @@ const postModel = new Schema({
     username: {type:String, required: true},
     title: String,
     content:String,
+    price: Number,
     img: String,
 });
 

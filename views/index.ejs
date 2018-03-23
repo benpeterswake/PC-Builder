@@ -7,6 +7,7 @@
   <style media="screen">
 
   </style>
+
 </head>
 <body>
 
@@ -68,51 +69,25 @@
       <!--   Last Post Section   -->
       <h3 class="header center grey-text">Lastest Posts</h3>
       <div class="row" style="padding-top:40px">
-        <div class="col s12 m4">
-          <div class="card">
-            <div class="card-image">
-              <img src="https://i.ytimg.com/vi/OA3Cg3fQlNI/maxresdefault.jpg">
-              <span class="card-title">Card Title</span>
-            </div>
-            <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
-            </div>
-            <div class="card-action">
-              <a href="#">This is a link</a>
-            </div>
-          </div>
-        </div>
-        <div class="col s12 m4">
-          <div class="card">
-            <div class="card-image">
-              <img src="https://i.ytimg.com/vi/OA3Cg3fQlNI/maxresdefault.jpg">
-              <span class="card-title">Card Title</span>
-            </div>
-            <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
-            </div>
-            <div class="card-action">
-              <a href="#">This is a link</a>
+        <% for(let i=0; i<posts.length; i++){ %>
+          <% var string = posts[i].content; %>
+          <% var length = 100 %>
+          <% var trimmedString = string.substring(0, length); %>
+          <div class="col s12 m4">
+            <div class="card">
+              <div class="card-image">
+                <img src="<%= posts[i].img %>">
+                <span class="card-title" style="background-color: rgba(0,0,0,0.5)"><%= posts[i].title %></span>
+              </div>
+              <div class="card-content">
+                <p><%= trimmedString %> {...}</p>
+              </div>
+              <div class="card-action">
+                <a href="/posts/<%= posts[i]._id %>">Read More</a>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col s12 m4">
-          <div class="card">
-            <div class="card-image">
-              <img src="https://i.ytimg.com/vi/OA3Cg3fQlNI/maxresdefault.jpg">
-              <span class="card-title">Card Title</span>
-            </div>
-            <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
-            </div>
-            <div class="card-action">
-              <a href="#">This is a link</a>
-            </div>
-          </div>
-        </div>
+        <% } %>
       </div>
     </div>
 

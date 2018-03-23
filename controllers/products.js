@@ -52,12 +52,13 @@ router.get('/gpu', (req, res) => {
   });
 });
 
-router.put('/cpu/:name/:make/:link/:id', (req, res) => {
+router.put('/cpu/:name/:make/:price/:link/:id', (req, res) => {
   if(req.session.currentUser){
     List.findOneAndUpdate(
       {user_id: req.session.currentUser._id},
-      { $set: {cpu: { name: req.params.name, make: req.params.make, link: req.params.link, id: req.params.id} } },
+      { $set: {cpu: { name: req.params.name, make: req.params.make, price: req.params.price, link: req.params.link, id: req.params.id} } },
       (err, data) => {
+        console.log(req.params.price);
         res.redirect('/list');
     });
   }else{
@@ -66,11 +67,11 @@ router.put('/cpu/:name/:make/:link/:id', (req, res) => {
 
 });
 
-router.put('/gpu/:name/:make/:link/:id', (req, res) => {
+router.put('/gpu/:name/:make/:price/:link/:id', (req, res) => {
     if(req.session.currentUser){
       List.findOneAndUpdate(
         {user_id: req.session.currentUser._id},
-        { $set: {gpu: { name: req.params.name, make: req.params.make, link: req.params.link, id: req.params.id} } },
+        { $set: {gpu: { name: req.params.name, make: req.params.make, price: req.params.price, link: req.params.link, id: req.params.id} } },
         (err, data) => {
           res.redirect('/list')
       });
@@ -79,11 +80,11 @@ router.put('/gpu/:name/:make/:link/:id', (req, res) => {
     }
 });
 
-router.put('/cpu-cooler/:name/:make/:link/:id', (req, res) => {
+router.put('/cpu-cooler/:name/:make/:price/:link/:id', (req, res) => {
     if(req.session.currentUser){
       List.findOneAndUpdate(
         {user_id: req.session.currentUser._id},
-        { $set: {cooler: { name: req.params.name, make: req.params.make, link: req.params.link, id: req.params.id} } },
+        { $set: {cooler: { name: req.params.name, make: req.params.make, price:req.params.price, link: req.params.link, id: req.params.id} } },
         (err, data) => {
           res.redirect('/list')
       });

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <% include ../partials/head %>
+
+  <style media="screen">
+    body{
+      background: url(../imgs/background.jpg) no-repeat;
+      background-size: cover;
+    }
+  </style>
+</head>
+<body >
+
+  <% include ../partials/nav %>
+
+    <!--   Main Container   -->
+  <div class="container center-align">
+    <div class="section">
+      <div class="row" style="padding:80px 0px 60px 0px;">
+        <div class="col l6 m12">
+          <img class="responsive-img" src="<%= post.img %>" alt="">
+        </div>
+        <div class="col l6 m12">
+        <h3 class="white-text"><%= post.title %></h3>
+        <p class="white-text left-align"><%= post.content %></p>
+        <p class="white-text left-align">Total: $<%= post.price %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="../js/materialize.js"></script>
+  <script src="../js/init.js"></script>
+</body>
+</html>

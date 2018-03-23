@@ -19,7 +19,7 @@ const gpu = require('./models/parts/gpu.js');
 const Cooler = require('./models/parts/cooler.js');
 const User = require('./models/user.js');
 const List = require('./models/list.js');
-
+const Post = require('./models/post.js');
 //Port
 const port = process.env.PORT || 3000;
 const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/pcbuilder';
@@ -40,9 +40,12 @@ app.use('/products', prodcutController);
 app.use('/list', listController);
 
 app.get('/', (req, res) => {
-  res.render('index.ejs', {
-    user: req.session.currentUser
-  })
+  Post.find({}, (err, posts) => {
+    res.render('index.ejs', {
+      user: req.session.currentUser,
+      posts
+    });
+  });
 });
 
 app.get('/posts/new', (req, res) => {
@@ -57,6 +60,28 @@ app.get('/posts/new', (req, res) => {
   }else{
     res.redirect('/login')
   }
+});
+
+app.get('/posts/:id', (req, res) => {
+  Post.findById(req.params.id, (err, post) => {
+    console.log(post);
+      res.render('posts/show.ejs', {
+        user: req.session.currentUser,
+        post
+      });
+  });
+});
+
+app.post('/posts/new', (req, res) => {
+  req.body.username = req.session.currentUser.username;
+  Post.create(req.body, (err, post) =>{
+    if(err){
+      console.log(err);
+    }else {
+      console.log(post);
+      res.redirect('/');
+    }
+  });
 });
 
 app.get('/success', (req, res) => {
