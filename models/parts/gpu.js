@@ -8,6 +8,7 @@ const gpuSchema = new Schema({
   baseclock: Number,
   vram: String,
   tdp: String,
+  price: Number,
   amazonlink:String
 });
 

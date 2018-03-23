@@ -35,7 +35,7 @@
                   <td><%= gpu[i].chipset %></td>
                   <td><%= gpu[i].baseclock %></td>
                   <td><%= gpu[i].tdp %></td>
-                  <td></td>
+                  <td>$<%= gpu[i].price %></td>
                   <td>
                     <form action="/products/gpu/<%= gpu[i].chipset %>/<%= gpu[i].make %>/<%= gpu[i].amazonlink %>/<%= gpu[i]._id %>?_method=PUT" method="POST">
                       <input type="submit" value="Add">

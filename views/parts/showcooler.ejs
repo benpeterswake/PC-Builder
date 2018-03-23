@@ -33,7 +33,7 @@
                   <td><%= cooler[i].make %> <%= cooler[i].name %></td>
                   <td><%= cooler[i].speed %></td>
                   <td><%= cooler[i].noise %></td>
-                  <td></td>
+                  <td>$<%= cooler[i].price %></td>
                   <td>
                     <form action="/products/cpu-cooler/<%= cooler[i].name %>/<%= cooler[i].make %>/<%= cooler[i].amazonlink %>/<%= cooler[i]._id %>?_method=PUT" method="POST">
                       <input type="submit" value="Add">

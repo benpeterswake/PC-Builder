@@ -1,14 +1,24 @@
 const express = require('express');
 const router = express.Router();
-const cpu = require('../models/cpu.js');
-const gpu = require('../models/gpu.js');
-const Cooler = require('../models/cooler.js');
+const cpu = require('../models/parts/cpu.js');
+const gpu = require('../models/parts/gpu.js');
+const Cooler = require('../models/parts/cooler.js');
 const Mobo = require('../models/parts/mobo.js');
 const List = require('../models/list.js');
+const PriceFinder = require("price-finder");
+const priceFinder = new PriceFinder();
+let uri;
 
 router.get('/cpu', (req, res) => {
+  const prices = []
   cpu.find({}, (err, data) => {
-    res.render('parts/showcpu.ejs', {
+    // for(let i = 0; i<data.length; i++){
+    //  uri = 'https://www.amazon.com/dp/' + data[i].amazonlink;
+    //   priceFinder.findItemPrice(uri, function(err, price) {
+    //       prices.push(price);
+    //    });
+    // }
+   res.render('parts/showcpu.ejs', {
       user: req.session.currentUser,
       cpu: data
     });

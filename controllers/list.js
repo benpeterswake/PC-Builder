@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const cpu = require('../models/cpu.js');
-const gpu = require('../models/gpu.js');
-const Cooler = require('../models/cooler.js');
+const cpu = require('../models/parts/cpu.js');
+const gpu = require('../models/parts/gpu.js');
+const Cooler = require('../models/parts/cooler.js');
 const Mobo = require('../models/parts/mobo.js')
 const List = require('../models/list.js');
 

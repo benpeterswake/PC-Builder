@@ -7,6 +7,7 @@ const coolerSchema = new Schema({
   speed: String,
   noise: String,
   supported: [String],
+  price: Number,
   amazonlink:String
 });
 

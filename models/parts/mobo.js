@@ -8,6 +8,7 @@ const moboSchema = new Schema({
   form: String,
   ram: Number,
   maxRam: Number,
+  price: Number,
   amazonlink:String
 });
 

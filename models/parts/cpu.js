@@ -8,6 +8,7 @@ const cpuSchema = new Schema({
   baseclock: Number,
   cores: Number,
   tdp: String,
+  price: Number,
   amazonlink:String
 });
 

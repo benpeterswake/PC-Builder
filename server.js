@@ -14,9 +14,9 @@ const prodcutController = require('./controllers/products.js');
 const listController = require('./controllers/list.js');
 
 //Models
-const cpu = require('./models/cpu.js');
-const gpu = require('./models/gpu.js');
-const Cooler = require('./models/cooler.js');
+const cpu = require('./models/parts/cpu.js');
+const gpu = require('./models/parts/gpu.js');
+const Cooler = require('./models/parts/cooler.js');
 const User = require('./models/user.js');
 const List = require('./models/list.js');
 
@@ -43,6 +43,20 @@ app.get('/', (req, res) => {
   res.render('index.ejs', {
     user: req.session.currentUser
   })
+});
+
+app.get('/posts/new', (req, res) => {
+  if(req.session.currentUser){
+    if(req.session.currentUser.admin === true){
+      res.render('posts/new.ejs', {
+        user: req.session.currentUser
+      });
+    }else{
+      res.redirect('/')
+    }
+  }else{
+    res.redirect('/login')
+  }
 });
 
 app.get('/success', (req, res) => {
