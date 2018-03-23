@@ -9,7 +9,7 @@
 
     <div class="top-text orange lighten-3">
       <div class="container">
-          <h4>Choose CPU</h4>
+          <h4>Choose Motherboard</h4>
       </div>
     </div>
 
@@ -20,21 +20,23 @@
           <table class="striped">
             <thead>
                 <tr>
-                    <th>CPU</th>
-                    <th>Base Clock</th>
-                    <th>Cores</th>
-                    <th>TDP</th>
+                    <th>Motherboard</th>
+                    <th>Socket</th>
+                    <th>Form Factor</th>
+                    <th>RAM Slots</th>
+                    <th>Max RAM</th>
                     <th>Price</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-              <% for(let i=0; i<cpu.length; i++){ %>
+              <% for(let i=0; i<mobo.length; i++){ %>
                 <tr>
-                  <td><%= cpu[i].make %> <%= cpu[i].name %></td>
-                  <td><%= cpu[i].baseclock %></td>
-                  <td><%= cpu[i].cores %></td>
-                  <td><%= cpu[i].tdp %></td>
+                  <td><%= mobo[i].make %> <%= mobo[i].name %></td>
+                  <td><%= mobo[i].socket %></td>
+                  <td><%= mobo[i].form %></td>
+                  <td><%= mobo[i].ram %></td>
+                  <td><%= mobo[i].maxRam %></td>
                   <td></td>
                   <td>
                     <form action="#" method="POST">
@@ -49,6 +51,10 @@
       </div>
     </div>
 
-      <% include ./partials/footer %>
+      <% include ../partials/footer %>
+      <!--  Scripts-->
+      <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script src="../js/materialize.js"></script>
+      <script src="../js/init.js"></script>
   </body>
 </html>

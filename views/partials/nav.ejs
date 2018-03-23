@@ -5,7 +5,7 @@
       <% if(user) { %>
         <li><a class="dropdown-button" href="#!" data-activates="dropdown2"><span style="font-weight: bold;"><%=user.username %></span><i class="material-icons right">account_circle</i> </a></li>
         <ul id="dropdown2" class="dropdown-content">
-          <li><a class="blue-text" href="#!">Profile</a></li>
+          <li><a class="blue-text" href="/profile">Profile</a></li>
           <li><a class="blue-text" href="#!">Saved Builds</a></li>
           <li><form  action="/login?_method=DELETE" method="POST">
             <button class="btn waves-effect waves-light blue lighten-1" style="width:100%; height:50px; border-radius:0%" type="submit" name="action">Logout
@@ -36,11 +36,11 @@
       <!-- Dropdown Structure -->
       <ul id="dropdown1" class="dropdown-content">
         <li><a href="/products/cpu">CPU</a></li>
-        <li><a href="#!">CPU Cooler</a></li>
+        <li><a href="/products/cpu-cooler">CPU Cooler</a></li>
         <li><a href="/products/gpu">GPU</a></li>
         <!-- <li class="divider"></li> -->
         <li><a href="#!">RAM</a></li>
-        <li><a href="#!">Motherboard</a></li>
+        <li><a href="/products/motherboard">Motherboard</a></li>
         <li><a href="#!">Storage</a></li>
         <li><a href="#!">Power Supply</a></li>
         <li><a href="#!">Case</a></li>

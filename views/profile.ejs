@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <% include ./partials/head %>
+
+  <style media="screen">
+  </style>
+</head>
+<body>
+
+  <% include ./partials/nav %>
+
+    <!--   Main Container   -->
+  <div class="container">
+    <div class="section">
+      <div class="row" style="padding:60px 0px 60px 0px;">
+          <div class="col s12 m6">
+            <div class="card blue-grey darken-1">
+              <div class="card-content white-text">
+                <span class="card-title">Name</span>
+                <%= user.first_name %> <%= user.last_name %>
+              </div>
+              <div class="card-action">
+                <a href="#">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+</body>
+</html>

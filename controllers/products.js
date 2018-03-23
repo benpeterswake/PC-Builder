@@ -3,6 +3,7 @@ const router = express.Router();
 const cpu = require('../models/cpu.js');
 const gpu = require('../models/gpu.js');
 const Cooler = require('../models/cooler.js');
+const Mobo = require('../models/parts/mobo.js');
 const List = require('../models/list.js');
 
 router.get('/cpu', (req, res) => {
@@ -19,6 +20,15 @@ router.get('/cpu-cooler', (req, res) => {
     res.render('./parts/showcooler.ejs', {
       user: req.session.currentUser,
       cooler: data
+    });
+  });
+});
+
+router.get('/motherboard', (req, res) => {
+  Mobo.find({}, (err, data) => {
+    res.render('./parts/showmobo.ejs', {
+      user: req.session.currentUser,
+      mobo: data
     });
   });
 });

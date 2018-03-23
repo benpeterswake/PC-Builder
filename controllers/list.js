@@ -3,6 +3,7 @@ const router = express.Router();
 const cpu = require('../models/cpu.js');
 const gpu = require('../models/gpu.js');
 const Cooler = require('../models/cooler.js');
+const Mobo = require('../models/parts/mobo.js')
 const List = require('../models/list.js');
 
 router.get('/', (req, res) => {
@@ -12,6 +13,7 @@ router.get('/', (req, res) => {
         user: req.session.currentUser,
         cpu: userlist.cpu,
         gpu: userlist.gpu,
+        mobo: userlist.mobo,
         cooler: userlist.cooler
       });
     });
@@ -23,7 +25,7 @@ router.get('/', (req, res) => {
 router.put('/cpu', (req, res) => {
       List.findOneAndUpdate(
         {user_id: req.session.currentUser._id},
-        { $set: {cpu: { name: 'none'} } },
+        { $set: {cpu: { } } },
         (err, data) => {
           res.redirect('/list')
       });
@@ -32,10 +34,20 @@ router.put('/cpu', (req, res) => {
 router.put('/gpu', (req, res) => {
       List.findOneAndUpdate(
         {user_id: req.session.currentUser._id},
-        { $set: {gpu: { name: 'none'} } },
+        { $set: {gpu: { } } },
         (err, data) => {
           res.redirect('/list')
       });
 });
+
+router.put('/cpu-cooler', (req, res) => {
+      List.findOneAndUpdate(
+        {user_id: req.session.currentUser._id},
+        { $set: {cooler: { } } },
+        (err, data) => {
+          res.redirect('/list')
+      });
+});
+
 
 module.exports = router;

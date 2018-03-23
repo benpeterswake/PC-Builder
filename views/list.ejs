@@ -10,13 +10,12 @@
 <body>
 
   <% include ./partials/nav %>
-    <% if(user) { %>
   <div class="top-text orange lighten-3">
     <div class="container">
         <h4>Current Part List</h4>
     </div>
   </div>
-  <% } %>
+
     <!--   Main Container   -->
   <div class="container">
     <div class="section">
@@ -28,13 +27,12 @@
                  <th>Part</th>
                  <th>Select</th>
                  <th>Price (USD)</th>
-                 <th>Link</th>
              </tr>
            </thead>
            <tbody>
              <tr>
                <td>CPU</td>
-               <% if(cpu.name != 'none'){ %>
+               <% if(cpu.name != undefined){ %>
                <td>
                    <%= cpu.make %> <%= cpu.name %> <a href="/products/cpu">change</a>
                </td>
@@ -63,7 +61,7 @@
                 <td></td><!-- Price !-->
                 <td><a class="waves-effect waves-light blue lighten-1 btn" href="https://www.amazon.com/dp/<%= cooler.link %>" target="_target">Buy</a></td>
                 <td>
-                  <form action="list/cooler?_method=PUT" method="POST">
+                  <form action="list/cpu-cooler?_method=PUT" method="POST">
                         <button type="submit" class="btn red lighten-1"><i class="material-icons">delete</i></button>
                   </form>
                 </td>
@@ -78,12 +76,25 @@
              </tr>
              <tr>
                <td>Motherboard</td>
+               <% if(mobo.name != undefined){ %>
                <td>
-                 <a class="waves-effect waves-light blue lighten-1 btn" href="/products/motherboard">Choose Motherboard</a>
+                   <%= mobo.make %> <%= mobo.name %> <a href="/products/motherboard">change</a>
+               </td>
+                <td></td><!-- Price !-->
+                <td><a class="waves-effect waves-light blue lighten-1 btn" href="https://www.amazon.com/dp/<%= mobo.link %>" target="_target">Buy</a></td>
+                <td>
+                  <form action="list/motherboard?_method=PUT" method="POST">
+                        <button type="submit" class="btn red lighten-1"><i class="material-icons">delete</i></button>
+                  </form>
+                </td>
+               <% }else { %>
+               <td>
+                  <a class="waves-effect waves-light blue lighten-1 btn" href="/products/motherboard">Choose Motherboard</a>
                </td>
                <td></td>
                <td></td>
-               <td></td>
+                <td></td>
+               <% } %>
              </tr>
              <tr>
                <td>RAM</td>
@@ -96,7 +107,7 @@
              </tr>
              <tr>
                <td>GPU</td>
-               <% if(gpu.name != 'none'){ %>
+               <% if(gpu.name != undefined){ %>
                <td>
                    <%= gpu.make %> <%= gpu.name %> <a href="/products/gpu">change</a>
                </td>
@@ -146,7 +157,7 @@
              <tr>
                <td></td>
                <td></td>
-               <td>Total: $</td>
+               <td style="font-weight:bold">Total: </td>
                <td></td>
                <td></td>
              </tr>

@@ -51,6 +51,12 @@ app.get('/success', (req, res) => {
   });
 });
 
+app.get('/profile', (req, res) => {
+  res.render('profile.ejs', {
+    user: req.session.currentUser,
+  });
+});
+
 const seedCPU = require('./models/seed/seedCPU.js');
 app.get('/seedCPU', (req, res) => {
       // seeds the data
