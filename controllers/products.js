@@ -10,7 +10,7 @@ const priceFinder = new PriceFinder();
 let uri;
 
 router.get('/cpu', (req, res) => {
-  const prices = []
+  // const prices = []
   cpu.find({}, (err, data) => {
     // for(let i = 0; i<data.length; i++){
     //  uri = 'https://www.amazon.com/dp/' + data[i].amazonlink;
@@ -86,10 +86,23 @@ router.put('/cpu-cooler/:name/:make/:price/:link/:id', (req, res) => {
         {user_id: req.session.currentUser._id},
         { $set: {cooler: { name: req.params.name, make: req.params.make, price:req.params.price, link: req.params.link, id: req.params.id} } },
         (err, data) => {
-          res.redirect('/list')
+        res.redirect('/list')
       });
     }else{
-      res.redirect('/login');
+        res.redirect('/login');
+    }
+});
+
+router.put('/mobo/:name/:make/:price/:link/:id', (req, res) => {
+    if(req.session.currentUser){
+      List.findOneAndUpdate(
+        {user_id: req.session.currentUser._id},
+        { $set: {mobo: { name: req.params.name, make: req.params.make, price:req.params.price, link: req.params.link, id: req.params.id} } },
+        (err, data) => {
+        res.redirect('/list')
+      });
+    }else{
+        res.redirect('/login');
     }
 });
 

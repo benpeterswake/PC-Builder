@@ -22,10 +22,17 @@
         <div class="col l6 m12">
           <img class="responsive-img" src="<%= post.img %>" alt="">
         </div>
-        <div class="col l6 m12">
-        <h3 class="white-text"><%= post.title %></h3>
-        <p class="white-text left-align"><%= post.content %></p>
-        <p class="white-text left-align">Total: $<%= post.price %></p>
+        <div class="col l6 m12 white-text left-align">
+        <h3 class="center-align"><%= post.title %></h3>
+        <p><i class="material-icons dp48">account_circle</i> <span style="position: absolute;margin-top:2px; margin-left: 5px"><%= post.username %></span></p>
+        <h5>Description:</h5>
+        <p><%= post.content %></p>
+        <p>Total: $<%= post.price %></p>
+        <% if(user) { %>
+          <% if(post.username === user.username){ %>
+            <a class="btn waves-effect waves-light blue" href="/posts/edit/<%= post.id %>">Edit</a>
+          <% } %>
+        <% } %>
         </div>
       </div>
     </div>

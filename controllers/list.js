@@ -9,7 +9,7 @@ const List = require('../models/list.js');
 router.get('/', (req, res) => {
   if(req.session.currentUser){
     List.findOne({user_id: req.session.currentUser._id}, (err, userlist) => {
-      let parts = [userlist.cpu.price, userlist.gpu.price, userlist.cooler.price];
+      let parts = [userlist.cpu.price, userlist.gpu.price, userlist.cooler.price, userlist.mobo.price];
       let sum = 0;
       for(let i=0; i< parts.length; i++){
         if(parts[i] != undefined){
@@ -52,6 +52,15 @@ router.put('/cpu-cooler', (req, res) => {
       List.findOneAndUpdate(
         {user_id: req.session.currentUser._id},
         { $set: {cooler: { } } },
+        (err, data) => {
+          res.redirect('/list')
+      });
+});
+
+router.put('/mobo', (req, res) => {
+      List.findOneAndUpdate(
+        {user_id: req.session.currentUser._id},
+        { $set: {mobo: { } } },
         (err, data) => {
           res.redirect('/list')
       });

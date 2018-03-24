@@ -3,9 +3,7 @@
     <a id="logo-container" href="/" class="brand-logo"><i class="fas fa-cube"></i> PC BUILDER</a>
     <ul class="right hide-on-med-and-down">
       <% if(user) { %>
-        <% if(user.admin === true){ %>
-          <li><a href="/posts/new">Add Post</a></li>
-        <% } %>
+        <li><a href="/posts/new">Add Post</a></li>
         <li><a class="dropdown-button" href="#!" data-activates="dropdown2"><span style="font-weight: bold;"><%=user.username %></span><i class="material-icons right">account_circle</i> </a></li>
         <ul id="dropdown2" class="dropdown-content">
           <li><a class="blue-text" href="/profile">Profile</a></li>
