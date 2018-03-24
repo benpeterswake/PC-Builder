@@ -18,6 +18,7 @@ const postController = require('./controllers/posts.js');
 const cpu = require('./models/parts/cpu.js');
 const gpu = require('./models/parts/gpu.js');
 const Cooler = require('./models/parts/cooler.js');
+const ram = require('./models/parts/ram.js');
 const Mobo = require('./models/parts/mobo.js');
 
 const User = require('./models/user.js');
@@ -66,8 +67,11 @@ app.get('/failed', (req, res) => {
 });
 
 app.get('/profile', (req, res) => {
-  res.render('profile.ejs', {
-    user: req.session.currentUser,
+  Post.find({username: req.session.currentUser.username}, (err, data) =>{
+    res.render('profile.ejs', {
+      user: req.session.currentUser,
+      posts: data
+    });
   });
 });
 
@@ -111,6 +115,18 @@ const seedMobo = require('./models/seed/seedMobo.js');
 app.get('/seedMobo', (req, res) => {
       // seeds the data
     Mobo.create(seedMobo, (err, created) => {
+      console.log(err);
+      // logs created users
+      console.log(created);
+      // redirects to index
+      res.redirect('/');
+    });
+});
+
+const seedRAM = require('./models/seed/seedRAM.js');
+app.get('/seedRAM', (req, res) => {
+      // seeds the data
+    ram.create(seedRAM, (err, created) => {
       console.log(err);
       // logs created users
       console.log(created);

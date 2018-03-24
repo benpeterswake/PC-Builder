@@ -3,13 +3,14 @@ const router = express.Router();
 const cpu = require('../models/parts/cpu.js');
 const gpu = require('../models/parts/gpu.js');
 const Cooler = require('../models/parts/cooler.js');
-const Mobo = require('../models/parts/mobo.js')
+const Mobo = require('../models/parts/mobo.js');
+const ram = require('../models/parts/ram.js');
 const List = require('../models/list.js');
 
 router.get('/', (req, res) => {
   if(req.session.currentUser){
     List.findOne({user_id: req.session.currentUser._id}, (err, userlist) => {
-      let parts = [userlist.cpu.price, userlist.gpu.price, userlist.cooler.price, userlist.mobo.price];
+      let parts = [userlist.cpu.price, userlist.gpu.price, userlist.cooler.price, userlist.mobo.price, userlist.ram.price];
       let sum = 0;
       for(let i=0; i< parts.length; i++){
         if(parts[i] != undefined){
@@ -22,6 +23,7 @@ router.get('/', (req, res) => {
         gpu: userlist.gpu,
         mobo: userlist.mobo,
         cooler: userlist.cooler,
+        ram: userlist.ram,
         total: sum
       });
     });
@@ -66,5 +68,13 @@ router.put('/mobo', (req, res) => {
       });
 });
 
+router.put('/ram', (req, res) => {
+      List.findOneAndUpdate(
+        {user_id: req.session.currentUser._id},
+        { $set: {ram: { } } },
+        (err, data) => {
+          res.redirect('/list')
+      });
+});
 
 module.exports = router;

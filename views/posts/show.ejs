@@ -22,15 +22,37 @@
         <div class="col l6 m12">
           <img class="responsive-img" src="<%= post.img %>" alt="">
         </div>
-        <div class="col l6 m12 white-text left-align">
+        <div class="col l6 m12 white-text left-align" style="background:#2DB5F6; padding:25px; border-radius:0.2em">
         <h3 class="center-align"><%= post.title %></h3>
         <p><i class="material-icons dp48">account_circle</i> <span style="position: absolute;margin-top:2px; margin-left: 5px"><%= post.username %></span></p>
-        <h5>Description:</h5>
-        <p><%= post.content %></p>
-        <p>Total: $<%= post.price %></p>
+        <h5>CPU:</h5>
+        <p><%= post.cpu %></p>
+
+        <h5>CPU Cooler:</h5>
+        <p><%= post.cooler %></p>
+
+        <h5>GPU:</h5>
+        <p><%= post.gpu %></p>
+
+        <h5>Motherboard</h5>
+        <p><%= post.mobo %></p>
+
+        <h5>RAM:</h5>
+        <p><%= post.ram %></p>
+
+        <h5>Storage:</h5>
+        <p><%= post.storage %></p>
+
+        <h5>Power Supply:</h5>
+        <p><%= post.psu %></p>
+
+        <h5>Case:</h5>
+        <p><%= post.case %></p>
+
+        <h5>Total Price: $<%= post.price %></h5>
         <% if(user) { %>
           <% if(post.username === user.username){ %>
-            <a class="btn waves-effect waves-light blue" href="/posts/edit/<%= post.id %>">Edit</a>
+            <a style="margin-top:20px" class="btn waves-effect waves-light orange" href="/posts/edit/<%= post.id %>">Edit</a>
           <% } %>
         <% } %>
         </div>

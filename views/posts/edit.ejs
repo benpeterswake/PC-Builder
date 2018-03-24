@@ -22,33 +22,61 @@
         <div class="col l2 m12">
         </div>
         <form class="col l8 m12" action="/posts/edit/<%= post.id %>?_method=PUT" method="POST">
-          <div class="row">
-            <div class="card blue-grey darken-1">
-              <div class="card-content white-text">
-                <h4>Edit Post</h4>
-                <div class="input-field col s12" style="margin-top:80px">
-                  <input id="title" type="text" name="title" value="<%= post.title %>" required>
-                  <label for="title">Title</label>
-                </div>
-                <div class="input-field col s12">
-                  <textarea id="textarea1" name="content" class="materialize-textarea"  required><%= post.content %></textarea>
-                  <label for="textarea1">Description</label>
-                </div>
-                <div class="input-field col s12">
-                  <input type="text" class="validate" name="price" value="<%= post.price %>" required>
-                  <label for="icon_prefix">Price</label>
-                </div>
-                <div class="input-field col s12">
-                  <input type="text" class="validate" name="img" value="<%= post.img %>" required>
-                  <label for="icon_prefix">Img URL</label>
-                </div>
-                <div class="input-field col s12">
-                  <button class="waves-effect blue lighten-1 btn" type="submit">Udpate</button>
+            <div class="row">
+              <div class="card blue-grey darken-1">
+                <div class="card-content white-text">
+                  <h4>Edit Post</h4>
+                  <div class="input-field col s12" style="margin-top:80px">
+                    <input id="title" type="text" name="title" value="<%=post.title%>" class="validate">
+                    <label for="title">Title</label>
+                  </div>
+                  <div class="input-field col s12">
+                    <textarea id="textarea1" name="cpu" class="materialize-textarea validate"><%=post.cpu %></textarea>
+                    <label for="textarea1">CPU Selection</label>
+                  </div>
+                  <div class="input-field col s12">
+                    <textarea id="textarea1" name="cooler" class="materialize-textarea validate"><%=post.cooler %></textarea>
+                    <label for="textarea1">Cooler Selection</label>
+                  </div>
+                  <div class="input-field col s12">
+                    <textarea id="textarea1" name="mobo" class="materialize-textarea validate"><%=post.mobo %></textarea>
+                    <label for="textarea1">Motherboard Selection</label>
+                  </div>
+                  <div class="input-field col s12">
+                    <textarea id="textarea1" name="gpu" class="materialize-textarea validate"><%=post.gpu %></textarea>
+                    <label for="textarea1">GPU Selection</label>
+                  </div>
+                  <div class="input-field col s12">
+                    <textarea id="textarea1" name="ram" class="materialize-textarea validate"><%=post.ram %></textarea>
+                    <label for="textarea1">RAM Selection</label>
+                  </div>
+                  <div class="input-field col s12">
+                    <textarea id="textarea1" name="storage" class="materialize-textarea validate"><%=post.storage %></textarea>
+                    <label for="textarea1">Storage Selection</label>
+                  </div>
+                  <div class="input-field col s12">
+                    <textarea id="textarea1" name="psu" class="materialize-textarea validate"><%=post.psu %></textarea>
+                    <label for="textarea1">Power Supply Selection</label>
+                  </div>
+                  <div class="input-field col s12">
+                    <textarea id="textarea1" name="case" class="materialize-textarea validate"><%=post.case %></textarea>
+                    <label for="textarea1">Case Selection</label>
+                  </div>
+                  <div class="input-field col s12">
+                    <input type="text" class="validate" value="<%=post.price %>" name="price" required>
+                    <label for="icon_prefix">Total Price</label>
+                  </div>
+                  <div class="input-field col s12">
+                    <input type="text" class="validate" value="<%=post.img %>" name="img" required>
+                    <label for="icon_prefix">Img URL</label>
+                  </div>
+                  <div class="input-field col s12">
+                    <button class="waves-effect blue lighten-1 btn" type="submit">Edit</button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </form>
+          </form>
       </div>
     </div>
   </div>

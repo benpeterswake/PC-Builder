@@ -17,7 +17,7 @@ router.post('/new', (req, res) => {
       console.log(err);
       res.redirect('/signup');
     }else{
-      List.create({user_id: user._id, cpu: {}, gpu: {}, mobo:{}, ram:{}, psu:{}, storage:{}, case:{}, cooler: {} }, (err, data) =>{
+      List.create({user_id: user._id }, (err, data) =>{
         console.log(data);
       });
       console.log('user created: ' + user);

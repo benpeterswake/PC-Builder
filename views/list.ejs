@@ -21,7 +21,7 @@
     <div class="section">
       <% if(user) { %>
       <div class="row" style="padding:60px 0px 60px 0px">
-          <table class="striped">
+          <table class="striped responsive-table">
            <thead>
              <tr>
                  <th>Part</th>
@@ -40,7 +40,7 @@
                 <td><a class="waves-effect waves-light blue lighten-1 btn" href="https://www.amazon.com/dp/<%= cpu.link %>" target="_target">Buy</a></td>
                 <td>
                   <form action="list/cpu?_method=PUT" method="POST">
-                        <button type="submit" class="btn red lighten-1"><i class="material-icons">delete</i></button>
+                        <button type="submit" class="btn red"><i class="material-icons">delete</i></button>
                   </form>
                 </td>
                <% }else { %>
@@ -62,7 +62,7 @@
                 <td><a class="waves-effect waves-light blue lighten-1 btn" href="https://www.amazon.com/dp/<%= cooler.link %>" target="_target">Buy</a></td>
                 <td>
                   <form action="list/cpu-cooler?_method=PUT" method="POST">
-                        <button type="submit" class="btn red lighten-1"><i class="material-icons">delete</i></button>
+                        <button type="submit" class="btn red"><i class="material-icons">delete</i></button>
                   </form>
                 </td>
                <% }else { %>
@@ -84,7 +84,7 @@
                 <td><a class="waves-effect waves-light blue lighten-1 btn" href="https://www.amazon.com/dp/<%= mobo.link %>" target="_target">Buy</a></td>
                 <td>
                   <form action="list/mobo?_method=PUT" method="POST">
-                        <button type="submit" class="btn red lighten-1"><i class="material-icons">delete</i></button>
+                        <button type="submit" class="btn red"><i class="material-icons">delete</i></button>
                   </form>
                 </td>
                <% }else { %>
@@ -98,12 +98,25 @@
              </tr>
              <tr>
                <td>RAM</td>
+               <% if(ram.name != undefined){ %>
                <td>
-                 <a class="waves-effect waves-light blue lighten-1 btn" href="/products/ram">Choose RAM</a>
+                   <%= ram.make %> <%= ram.name %> <a href="/products/ram">change</a>
+               </td>
+                <td>$<%= ram.price %></td><!-- Price !-->
+                <td><a class="waves-effect waves-light blue lighten-1 btn" href="https://www.amazon.com/dp/<%= ram.link %>" target="_target">Buy</a></td>
+                <td>
+                  <form action="list/ram?_method=PUT" method="POST">
+                        <button type="submit" class="btn red"><i class="material-icons">delete</i></button>
+                  </form>
+                </td>
+               <% }else { %>
+               <td>
+                  <a class="waves-effect waves-light blue lighten-1 btn" href="/products/ram">Choose RAM</a>
                </td>
                <td></td>
                <td></td>
                <td></td>
+               <% } %>
              </tr>
              <tr>
                <td>GPU</td>
@@ -115,7 +128,7 @@
                 <td><a class="waves-effect waves-light blue lighten-1 btn" href="https://www.amazon.com/dp/<%= gpu.link %>" target="_target">Buy</a></td>
                 <td>
                   <form action="list/gpu?_method=PUT" method="POST">
-                        <button type="submit" class="btn red lighten-1"><i class="material-icons">delete</i></button>
+                        <button type="submit" class="btn red"><i class="material-icons">delete</i></button>
                   </form>
                 </td>
                <% }else { %>

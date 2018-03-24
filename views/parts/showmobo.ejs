@@ -36,7 +36,7 @@
                   <td><%= mobo[i].socket %></td>
                   <td><%= mobo[i].form %></td>
                   <td><%= mobo[i].ram %></td>
-                  <td><%= mobo[i].maxRam %></td>
+                  <td><%= mobo[i].maxRam %>GB</td>
                   <td>$<%= mobo[i].price %></td>
                   <td>
                     <form action="/products/mobo/<%= mobo[i].name %>/<%= mobo[i].make %>/<%= mobo[i].price %>/<%= mobo[i].amazonlink %>/<%= mobo[i]._id %>?_method=PUT" method="POST">
