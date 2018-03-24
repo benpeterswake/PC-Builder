@@ -75,6 +75,7 @@ app.get('/profile', (req, res) => {
   });
 });
 
+
 const seedCPU = require('./models/seed/seedCPU.js');
 app.get('/seedCPU', (req, res) => {
       // seeds the data

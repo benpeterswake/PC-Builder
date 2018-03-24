@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <% include ../partials/head %>
+
+  <style media="screen">
+
+  </style>
+
+</head>
+<body>
+
+  <% include ../partials/nav %>
+  <div class="top-text orange lighten-3">
+    <div class="container">
+        <h4>Completed Builds</h4>
+    </div>
+  </div>
+    <!--   Main Container   -->
+  <div class="container">
+    <div class="section">
+        <!--   Last Post Section   -->
+        <div class="row" style="padding-top:60px">
+          <% for(let i=0; i<posts.length; i++){ %>
+            <% var string = posts[i].cpu; %>
+            <% var length = 90 %>
+            <% var trimmedString = string.substring(0, length); %>
+            <div class="col s12 m4">
+            <div class="card">
+                <a href="/posts/<%= posts[i]._id %>"><div class="card-image">
+                  <img src="<%= posts[i].img %>">
+                  <span class="card-title" style="background-color: rgba(0,0,0,0.7)"><%= posts[i].title %></span>
+                </div></a>
+                <div class="card-content">
+                  <p style="color:grey; padding-bottom:10px;"><i class="material-icons dp48">account_circle</i> <span style=" position: absolute;margin-top:2px; margin-left: 5px"><%= posts[i].username %></span></p>
+                  <p><%= trimmedString %> {...}</p>
+                </div>
+                <div class="card-action">
+                  <a href="/posts/<%= posts[i]._id %>">Read More</a>
+                </div>
+              </div>
+            </div>
+          <% } %>
+        </div>
+      </div>
+    <br><br>
+  </div> <!--Main container closed !-->
+
+  <% include ../partials/call-to-action %>
+
+  <% include ../partials/footer %>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="../js/materialize.js"></script>
+  <script src="../js/init.js"></script>
+
+  </body>
+</html>

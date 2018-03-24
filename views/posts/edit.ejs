@@ -18,7 +18,7 @@
     <!--   Main Container   -->
   <div class="container center-align">
     <div class="section">
-      <div class="row" style="padding:80px 0px 60px 0px;">
+      <div class="row" style="padding-top:80px;">
         <div class="col l2 m12">
         </div>
         <form class="col l8 m12" action="/posts/edit/<%= post.id %>?_method=PUT" method="POST">
@@ -71,11 +71,17 @@
                     <label for="icon_prefix">Img URL</label>
                   </div>
                   <div class="input-field col s12">
-                    <button class="waves-effect blue lighten-1 btn" type="submit">Edit</button>
+                    <button class="waves-effect blue lighten-1 btn" type="submit">Submit Changes</button>
+                    &nbsp &nbsp
                   </div>
                 </div>
               </div>
             </div>
+          </form>
+      </div>
+      <div class="row" style="padding-bottom:40px;">
+          <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
+            <button class="waves-effect red btn" type="submit">Delete Post</button>
           </form>
       </div>
     </div>

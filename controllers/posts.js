@@ -2,6 +2,15 @@ const express = require('express');
 const router = express.Router();
 const Post = require('../models/post.js');
 
+router.get('/', (req, res) => {
+  Post.find({}, (err, posts) => {
+    res.render('posts/posts.ejs', {
+      user: req.session.currentUser,
+      posts
+    });
+  });
+});
+
 router.get('/new', (req, res) => {
   if(req.session.currentUser){
       res.render('posts/new.ejs', {
@@ -14,11 +23,15 @@ router.get('/new', (req, res) => {
 
 router.get('/:id', (req, res) => {
     Post.findById(req.params.id, (err, post) => {
-      console.log(post);
+      if(err){
+        console.log(err);
+      }else{
+        console.log(post);
         res.render('posts/show.ejs', {
           user: req.session.currentUser,
           post
         });
+      }
     });
 });
 
@@ -44,6 +57,7 @@ router.get('/edit/:id', (req, res) => {
   }
 });
 
+
 router.post('/new', (req, res) => {
   req.body.username = req.session.currentUser.username;
   Post.create(req.body, (err, post) =>{
@@ -51,7 +65,7 @@ router.post('/new', (req, res) => {
       console.log(err);
     }else {
       console.log(post);
-      res.redirect('/');
+      res.redirect('/profile');
     }
   });
 });
@@ -64,6 +78,18 @@ router.put('/edit/:id', (req, res) => {
       res.redirect('/posts/' + req.params.id)
     }
   });
-})
+});
+
+router.delete('/:id', (req, res) => {
+  Post.findByIdAndRemove(req.params.id , (err, data) => {
+    if(err){
+      console.log(err);
+    }else{
+      console.log(data);
+      res.redirect('/profile')
+    }
+  });
+});
+
 
 module.exports = router;
