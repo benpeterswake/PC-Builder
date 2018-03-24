@@ -20,6 +20,9 @@ const gpu = require('./models/parts/gpu.js');
 const Cooler = require('./models/parts/cooler.js');
 const ram = require('./models/parts/ram.js');
 const Mobo = require('./models/parts/mobo.js');
+const storage = require('./models/parts/storage.js');
+const psu = require('./models/parts/psu.js');
+const Case = require('./models/parts/case.js');
 
 const User = require('./models/user.js');
 const List = require('./models/list.js');
@@ -128,6 +131,42 @@ const seedRAM = require('./models/seed/seedRAM.js');
 app.get('/seedRAM', (req, res) => {
       // seeds the data
     ram.create(seedRAM, (err, created) => {
+      console.log(err);
+      // logs created users
+      console.log(created);
+      // redirects to index
+      res.redirect('/');
+    });
+});
+
+const seedStorage= require('./models/seed/seedStorage.js');
+app.get('/seedStorage', (req, res) => {
+      // seeds the data
+    storage.create(seedStorage, (err, created) => {
+      console.log(err);
+      // logs created users
+      console.log(created);
+      // redirects to index
+      res.redirect('/');
+    });
+});
+
+const seedPSU = require('./models/seed/seedPSU.js');
+app.get('/seedPSU', (req, res) => {
+      // seeds the data
+    psu.create(seedPSU, (err, created) => {
+      console.log(err);
+      // logs created users
+      console.log(created);
+      // redirects to index
+      res.redirect('/');
+    });
+});
+
+const seedCase = require('./models/seed/seedCase.js');
+app.get('/seedCase', (req, res) => {
+      // seeds the data
+    Case.create(seedCase, (err, created) => {
       console.log(err);
       // logs created users
       console.log(created);

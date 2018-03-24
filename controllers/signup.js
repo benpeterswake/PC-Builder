@@ -10,12 +10,19 @@ router.get('/', (req, res) => {
   });
 });
 
+router.get('/error', (req, res) =>{
+  res.render('signup/error.ejs', {
+    user: req.session.currentUser
+  });
+});
+
 router.post('/new', (req, res) => {
   req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10))
   User.create(req.body, (err, user) => {
     if(err){
-      console.log(err);
-      res.redirect('/signup');
+      if(err.code === 11000){
+        res.redirect('/signup/error');
+      }
     }else{
       List.create({user_id: user._id }, (err, data) =>{
         console.log(data);
@@ -25,5 +32,7 @@ router.post('/new', (req, res) => {
     }
   });
 });
+
+
 
 module.exports = router;

@@ -142,30 +142,69 @@
              </tr>
              <tr>
                <td>Storage</td>
+               <% if(storage.name != undefined){ %>
                <td>
-                 <a class="waves-effect waves-light blue lighten-1 btn" href="/products/storage">Choose Storage</a>
+                   <%= storage.make %> <%= storage.name %> <a href="/products/storage">change</a>
+               </td>
+                <td>$<%= storage.price %></td><!-- Price !-->
+                <td><a class="waves-effect waves-light blue lighten-1 btn" href="https://www.amazon.com/dp/<%= storage.link %>" target="_target">Buy</a></td>
+                <td>
+                  <form action="list/storage?_method=PUT" method="POST">
+                        <button type="submit" class="btn red"><i class="material-icons">delete</i></button>
+                  </form>
+                </td>
+               <% }else { %>
+               <td>
+                  <a class="waves-effect waves-light blue lighten-1 btn" href="/products/storage">Choose Storage</a>
                </td>
                <td></td>
                <td></td>
                <td></td>
+               <% } %>
              </tr>
              <tr>
                <td>Power Supply</td>
+               <% if(psu.name != undefined){ %>
                <td>
-                 <a class="waves-effect waves-light blue lighten-1 btn" href="/products/psu">Choose PSU</a>
+                   <%= psu.make %> <%= psu.name %> <a href="/products/psu">change</a>
+               </td>
+                <td>$<%= psu.price %></td><!-- Price !-->
+                <td><a class="waves-effect waves-light blue lighten-1 btn" href="https://www.amazon.com/dp/<%= psu.link %>" target="_target">Buy</a></td>
+                <td>
+                  <form action="list/psu?_method=PUT" method="POST">
+                        <button type="submit" class="btn red"><i class="material-icons">delete</i></button>
+                  </form>
+                </td>
+               <% }else { %>
+               <td>
+                  <a class="waves-effect waves-light blue lighten-1 btn" href="/products/psu">Choose Power Supply</a>
                </td>
                <td></td>
                <td></td>
                <td></td>
+               <% } %>
              </tr>
              <tr>
                <td>Case</td>
+               <% if(Case.name != undefined){ %>
                <td>
-                 <a class="waves-effect waves-light blue lighten-1 btn" href="/products/case">Choose Case</a>
+                   <%= Case.make %> <%= Case.name %> <a href="/products/Case">change</a>
+               </td>
+                <td>$<%= Case.price %></td><!-- Price !-->
+                <td><a class="waves-effect waves-light blue lighten-1 btn" href="https://www.amazon.com/dp/<%= Case.link %>" target="_target">Buy</a></td>
+                <td>
+                  <form action="list/Case?_method=PUT" method="POST">
+                        <button type="submit" class="btn red"><i class="material-icons">delete</i></button>
+                  </form>
+                </td>
+               <% }else { %>
+               <td>
+                  <a class="waves-effect waves-light blue lighten-1 btn" href="/products/Case">Choose Case</a>
                </td>
                <td></td>
                <td></td>
                <td></td>
+               <% } %>
              </tr>
              <tr>
                <td></td>
@@ -197,7 +236,7 @@
     <h3 class="header center white-text">View Completed Builds!</h3>
     <div class="row" style="padding-top:30px">
       <div class="col s12 m12 center-align">
-        <a class="waves-effect blue lighten-1 btn"><i class="material-icons left">check</i>Completed Builds</a>
+        <a href="/posts" class="waves-effect blue lighten-1 btn"><i class="material-icons left">check</i>Completed Builds</a>
       </div>
     </div>
   </div>

@@ -9,7 +9,7 @@
 
     <div class="top-text orange lighten-3">
       <div class="container">
-          <h4>Choose CPU</h4>
+          <h4>Choose Power Supply</h4>
       </div>
     </div>
 
@@ -20,24 +20,28 @@
           <table class="striped">
             <thead>
                 <tr>
-                    <th>CPU</th>
-                    <th>Base Clock</th>
-                    <th>Cores</th>
-                    <th>TDP</th>
+                    <th>Power Supply</th>
+                    <th>Series</th>
+                    <th>Form</th>
+                    <th>Efficiency</th>
+                    <th>Watts</th>
+                    <th>Modular</th>
                     <th>Price</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-              <% for(let i=0; i<cpu.length; i++){ %>
+              <% for(let i=0; i<psu.length; i++){ %>
                 <tr>
-                  <td><%= cpu[i].make %> <%= cpu[i].name %></td>
-                  <td><%= cpu[i].baseclock %></td>
-                  <td><%= cpu[i].cores %></td>
-                  <td><%= cpu[i].tdp %></td>
-                  <td></td>
+                  <td><%= psu[i].make %> <%= psu[i].name %></td>
+                  <td><%= psu[i].series %></td>
+                  <td><%= psu[i].form %></td>
+                  <td><%= psu[i].efficiency %></td>
+                  <td><%= psu[i].watts %>W</td>
+                  <td><%= psu[i].modular %></td>
+                  <td>$<%= psu[i].price %></td>
                   <td>
-                    <form action="#" method="POST">
+                    <form action="/products/psu/<%= psu[i].name %>/<%= psu[i].make %>/<%= psu[i].price %>/<%= psu[i].amazonlink %>/<%= psu[i]._id %>?_method=PUT" method="POST">
                       <input type="submit" value="Add">
                     </form>
                   </td>
@@ -50,5 +54,9 @@
     </div>
 
       <% include ../partials/footer %>
+      <!--  Scripts-->
+      <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script src="../js/materialize.js"></script>
+      <script src="../js/init.js"></script>
   </body>
 </html>

@@ -5,12 +5,13 @@ const gpu = require('../models/parts/gpu.js');
 const Cooler = require('../models/parts/cooler.js');
 const Mobo = require('../models/parts/mobo.js');
 const ram = require('../models/parts/ram.js');
+const Case = require('../models/parts/case.js');
 const List = require('../models/list.js');
 
 router.get('/', (req, res) => {
   if(req.session.currentUser){
     List.findOne({user_id: req.session.currentUser._id}, (err, userlist) => {
-      let parts = [userlist.cpu.price, userlist.gpu.price, userlist.cooler.price, userlist.mobo.price, userlist.ram.price];
+      let parts = [userlist.cpu.price, userlist.gpu.price, userlist.cooler.price, userlist.mobo.price, userlist.ram.price, userlist.storage.price, userlist.psu.price, userlist.case.price];
       let sum = 0;
       for(let i=0; i< parts.length; i++){
         if(parts[i] != undefined){
@@ -24,6 +25,9 @@ router.get('/', (req, res) => {
         mobo: userlist.mobo,
         cooler: userlist.cooler,
         ram: userlist.ram,
+        storage: userlist.storage,
+        psu: userlist.psu,
+        Case: userlist.case,
         total: sum
       });
     });
@@ -72,6 +76,33 @@ router.put('/ram', (req, res) => {
       List.findOneAndUpdate(
         {user_id: req.session.currentUser._id},
         { $set: {ram: { } } },
+        (err, data) => {
+          res.redirect('/list')
+      });
+});
+
+router.put('/storage', (req, res) => {
+      List.findOneAndUpdate(
+        {user_id: req.session.currentUser._id},
+        { $set: {storage: { } } },
+        (err, data) => {
+          res.redirect('/list')
+      });
+});
+
+router.put('/psu', (req, res) => {
+      List.findOneAndUpdate(
+        {user_id: req.session.currentUser._id},
+        { $set: {psu: { } } },
+        (err, data) => {
+          res.redirect('/list')
+      });
+});
+
+router.put('/case', (req, res) => {
+      List.findOneAndUpdate(
+        {user_id: req.session.currentUser._id},
+        { $set: {case: { } } },
         (err, data) => {
           res.redirect('/list')
       });

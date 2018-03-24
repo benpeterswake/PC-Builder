@@ -9,7 +9,7 @@
 
     <div class="top-text orange lighten-3">
       <div class="container">
-          <h4>Choose CPU</h4>
+          <h4>Choose Case</h4>
       </div>
     </div>
 
@@ -21,24 +21,22 @@
             <thead>
 
                 <tr>
-                    <th>CPU</th>
-                    <th>Base Clock</th>
-                    <th>Cores</th>
-                    <th>TDP</th>
+                    <th>Case</th>
+                    <th>Type</th>
+                    <th>Case Included</th>
                     <th>Price</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-              <% for(let i=0; i<cpu.length; i++){ %>
+              <% for(let i=0; i<Case.length; i++){ %>
                 <tr>
-                  <td><%= cpu[i].make %> <%= cpu[i].name %></td>
-                  <td><%= cpu[i].baseclock %></td>
-                  <td><%= cpu[i].cores %></td>
-                  <td><%= cpu[i].tdp %></td>
-                  <td></td>
+                  <td><%= Case[i].make %> <%= Case[i].name %></td>
+                  <td><%= Case[i].type %></td>
+                  <td><%= Case[i].psuIncluded %></td>
+                  <td>$<%= Case[i].price %></td>
                   <td>
-                    <form action="#" method="POST">
+                    <form action="/products/Case/<%= Case[i].name %>/<%= Case[i].make %>/<%= Case[i].price %>/<%= Case[i].amazonlink %>/<%= Case[i]._id %>?_method=PUT" method="POST">
                       <input type="submit" value="Add">
                     </form>
                   </td>

@@ -9,7 +9,7 @@
 
     <div class="top-text orange lighten-2">
       <div class="container">
-          <h4>Choose CPU</h4>
+          <h4>Choose Storage</h4>
       </div>
     </div>
 
@@ -20,24 +20,26 @@
           <table class="striped">
             <thead>
                 <tr>
-                    <th>CPU</th>
-                    <th>Base Clock</th>
-                    <th>Cores</th>
-                    <th>TDP</th>
+                    <th>Storage</th>
+                    <th>Series</th>
+                    <th>Form</th>
+                    <th>Type</th>
+                    <th>Size</th>
                     <th>Price</th>
-                    <th></th>
                 </tr>
             </thead>
             <tbody>
-              <% for(let i=0; i<cpu.length; i++){ %>
+              <% for(let i=0; i<storage.length; i++){ %>
                 <tr>
-                  <td><%= cpu[i].make %> <%= cpu[i].name %></td>
-                  <td><%= cpu[i].baseclock %></td>
-                  <td><%= cpu[i].cores %></td>
-                  <td><%= cpu[i].tdp %></td>
+                  <td><%= storage[i].make %> <%= storage[i].name %></td>
+                  <td><%= storage[i].series %></td>
+                  <td><%= storage[i].form %></td>
+                  <td><%= storage[i].type %></td>
+                  <td><%= storage[i].size %>GB</td>
+                  <td>$<%= storage[i].price %></td>
                   <td></td>
                   <td>
-                    <form action="#" method="POST">
+                    <form action="/products/storage/<%= storage[i].name %>/<%= storage[i].make %>/<%= storage[i].price %>/<%= storage[i].amazonlink %>/<%= storage[i]._id %>?_method=PUT" method="POST">
                       <input type="submit" value="Add">
                     </form>
                   </td>
@@ -50,5 +52,9 @@
     </div>
 
       <% include ../partials/footer %>
+      <!--  Scripts-->
+      <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script src="../js/materialize.js"></script>
+      <script src="../js/init.js"></script>
   </body>
 </html>
