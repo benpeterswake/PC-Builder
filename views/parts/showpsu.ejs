@@ -41,7 +41,7 @@
                   <td><%= psu[i].modular %></td>
                   <td>$<%= psu[i].price %></td>
                   <td>
-                    <form action="/products/psu/<%= psu[i].name %>/<%= psu[i].make %>/<%= psu[i].price %>/<%= psu[i].amazonlink %>/<%= psu[i]._id %>?_method=PUT" method="POST">
+                    <form action="/products/psu/<%= psu[i].name %>/<%= psu[i].make %>/<%= psu[i].price %>/<%= psu[i].amazonlink %>/<%= psu[i].watts %>/<%= psu[i]._id %>?_method=PUT" method="POST">
                       <input type="submit" value="Add">
                     </form>
                   </td>

@@ -12,7 +12,7 @@ router.post('/new', (req, res, error) => {
       }else{
         if(bcrypt.compareSync(req.body.password, user.password)){
           req.session.currentUser = user;
-          res.redirect('/');
+          res.redirect('/list');
         }else {
           res.redirect('/login/error');
         }

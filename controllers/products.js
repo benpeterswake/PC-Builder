@@ -108,11 +108,11 @@ router.put('/cpu/:name/:make/:price/:link/:id', (req, res) => {
 
 });
 
-router.put('/gpu/:name/:make/:price/:link/:id', (req, res) => {
+router.put('/gpu/:name/:make/:price/:link/:size/:id', (req, res) => {
     if(req.session.currentUser){
       List.findOneAndUpdate(
         {user_id: req.session.currentUser._id},
-        { $set: {gpu: { name: req.params.name, make: req.params.make, price: req.params.price, link: req.params.link, id: req.params.id} } },
+        { $set: {gpu: { name: req.params.name, make: req.params.make, price: req.params.price, link: req.params.link, size: req.params.size, id: req.params.id} } },
         (err, data) => {
           res.redirect('/list')
       });
@@ -147,11 +147,11 @@ router.put('/mobo/:name/:make/:price/:link/:id', (req, res) => {
     }
 });
 
-router.put('/ram/:name/:make/:price/:link/:id', (req, res) => {
+router.put('/ram/:name/:make/:price/:link/:size/:id', (req, res) => {
     if(req.session.currentUser){
       List.findOneAndUpdate(
         {user_id: req.session.currentUser._id},
-        { $set: {ram: { name: req.params.name, make: req.params.make, price:req.params.price, link: req.params.link, id: req.params.id} } },
+        { $set: {ram: { name: req.params.name, make: req.params.make, price:req.params.price, link: req.params.link, size:req.params.size, id: req.params.id} } },
         (err, data) => {
         res.redirect('/list')
       });
@@ -160,11 +160,11 @@ router.put('/ram/:name/:make/:price/:link/:id', (req, res) => {
     }
 });
 
-router.put('/storage/:name/:make/:price/:link/:id', (req, res) => {
+router.put('/storage/:name/:make/:price/:link/:size/:id', (req, res) => {
     if(req.session.currentUser){
       List.findOneAndUpdate(
         {user_id: req.session.currentUser._id},
-        { $set: {storage: { name: req.params.name, make: req.params.make, price:req.params.price, link: req.params.link, id: req.params.id} } },
+        { $set: {storage: { name: req.params.name, make: req.params.make, price:req.params.price, link: req.params.link, size:req.params.size, id: req.params.id} } },
         (err, data) => {
         res.redirect('/list')
       });
@@ -174,11 +174,11 @@ router.put('/storage/:name/:make/:price/:link/:id', (req, res) => {
 });
 
 
-router.put('/psu/:name/:make/:price/:link/:id', (req, res) => {
+router.put('/psu/:name/:make/:price/:link/:watts/:id', (req, res) => {
     if(req.session.currentUser){
       List.findOneAndUpdate(
         {user_id: req.session.currentUser._id},
-        { $set: {psu: { name: req.params.name, make: req.params.make, price:req.params.price, link: req.params.link, id: req.params.id} } },
+        { $set: {psu: { name: req.params.name, make: req.params.make, price:req.params.price, link: req.params.link, watts: req.params.watts, id: req.params.id} } },
         (err, data) => {
         res.redirect('/list')
       });

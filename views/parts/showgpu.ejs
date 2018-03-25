@@ -22,6 +22,7 @@
                 <tr>
                     <th>GPU</th>
                     <th>Chipset</th>
+                    <th>VRAM</th>
                     <th>Base Clock</th>
                     <th>TDP</th>
                     <th>Price</th>
@@ -33,11 +34,13 @@
                 <tr>
                   <td><%= gpu[i].make %> <%= gpu[i].name %></td>
                   <td><%= gpu[i].chipset %></td>
+                  <td><%= gpu[i].vram %>GB</td>
                   <td><%= gpu[i].baseclock %>GHz</td>
+
                   <td><%= gpu[i].tdp %></td>
                   <td>$<%= gpu[i].price %></td>
                   <td>
-                    <form action="/products/gpu/<%= gpu[i].chipset %>/<%= gpu[i].make %>/<%= gpu[i].price %>/<%= gpu[i].amazonlink %>/<%= gpu[i]._id %>?_method=PUT" method="POST">
+                    <form action="/products/gpu/<%= gpu[i].chipset %>/<%= gpu[i].make %>/<%= gpu[i].price %>/<%= gpu[i].amazonlink %>/<%= gpu[i].vram %>/<%= gpu[i]._id %>?_method=PUT" method="POST">
                       <input type="submit" value="Add">
                     </form>
                   </td>

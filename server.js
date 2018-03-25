@@ -78,6 +78,12 @@ app.get('/profile', (req, res) => {
   });
 });
 
+app.get('/guide', (req, res) => {
+    res.render('guide.ejs', {
+      user: req.session.currentUser,
+  });
+});
+
 
 const seedCPU = require('./models/seed/seedCPU.js');
 app.get('/seedCPU', (req, res) => {

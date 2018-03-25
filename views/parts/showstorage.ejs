@@ -39,7 +39,7 @@
                   <td>$<%= storage[i].price %></td>
                   <td></td>
                   <td>
-                    <form action="/products/storage/<%= storage[i].name %>/<%= storage[i].make %>/<%= storage[i].price %>/<%= storage[i].amazonlink %>/<%= storage[i]._id %>?_method=PUT" method="POST">
+                    <form action="/products/storage/<%= storage[i].name %>/<%= storage[i].make %>/<%= storage[i].price %>/<%= storage[i].amazonlink %>/<%= storage[i].size %>/<%= storage[i]._id %>?_method=PUT" method="POST">
                       <input type="submit" value="Add">
                     </form>
                   </td>
