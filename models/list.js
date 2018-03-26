@@ -11,7 +11,7 @@ const listModel = new Schema({
     storage: {name: String, make:String, price: Number, link: String, size:Number, id: String},
     case: {name: String, name: String, price: Number, link: String, id: String},
     cooler: {name: String, make: String, price: Number, link: String, id: String},
-    monitor: {name: String, make: String, price: Number, link: String, size:Number, id: String},
+    monitor: {name: String, make: String, price: Number, link: String, size:String, id: String},
 });
 
 const List = mongoose.model('List', listModel);
