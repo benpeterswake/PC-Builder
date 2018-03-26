@@ -12,6 +12,7 @@ const postModel = new Schema({
     storage: String,
     mobo:String,
     case:String,
+    monitor:String,
     price: Number,
     img: String,
 });

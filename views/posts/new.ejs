@@ -31,36 +31,40 @@
                   <label for="title">Title</label>
                 </div>
                 <div class="input-field col s12">
-                  <textarea id="textarea1" name="cpu" class="materialize-textarea"></textarea>
+                  <textarea id="textarea1" name="cpu" class="materialize-textarea"><%= list.cpu.make %> <%= list.cpu.name %></textarea>
                   <label for="textarea1">CPU Selection</label>
                 </div>
                 <div class="input-field col s12">
-                  <textarea id="textarea1" name="cooler" class="materialize-textarea validate"></textarea>
+                  <textarea id="textarea1" name="cooler" class="materialize-textarea validate"><%= list.cooler.make %><%= list.cooler.name %></textarea>
                   <label for="textarea1">CPU Cooler Selection</label>
                 </div>
                 <div class="input-field col s12">
-                  <textarea id="textarea1" name="mobo" class="materialize-textarea validate"></textarea>
+                  <textarea id="textarea1" name="mobo" class="materialize-textarea validate"><%= list.mobo.make %> <%= list.mobo.name %></textarea>
                   <label for="textarea1">Motherboard Selection</label>
                 </div>
                 <div class="input-field col s12">
-                  <textarea id="textarea1" name="gpu" class="materialize-textarea validate"></textarea>
+                  <textarea id="textarea1" name="gpu" class="materialize-textarea validate"><%= list.gpu.make %> <%= list.gpu.name %></textarea>
                   <label for="textarea1">GPU Selection</label>
                 </div>
                 <div class="input-field col s12">
-                  <textarea id="textarea1" name="ram" class="materialize-textarea validate"></textarea>
+                  <textarea id="textarea1" name="ram" class="materialize-textarea validate"><%= list.ram.make %> <%= list.ram.name %> <%= list.ram.size %> <% if(list.ram.size){%> GB <%}%> </textarea>
                   <label for="textarea1">RAM Selection</label>
                 </div>
                 <div class="input-field col s12">
-                  <textarea id="textarea1" name="storage" class="materialize-textarea validate"></textarea>
+                  <textarea id="textarea1" name="storage" class="materialize-textarea validate"><%= list.storage.make %> <%= list.storage.name %> <%= list.storage.size %><% if(list.storage.size){%> GB <%}%></textarea>
                   <label for="textarea1">Storage Selection</label>
                 </div>
                 <div class="input-field col s12">
-                  <textarea id="textarea1" name="psu" class="materialize-textarea validate"></textarea>
+                  <textarea id="textarea1" name="psu" class="materialize-textarea validate"><%= list.psu.make %> <%= list.psu.name %> <%= list.psu.watts %> <% if(list.psu.watts){%> W <%}%></textarea>
                   <label for="textarea1">Power Supply Selection</label>
                 </div>
                 <div class="input-field col s12">
-                  <textarea id="textarea1" name="case" class="materialize-textarea validate"></textarea>
+                  <textarea id="textarea1" name="case" class="materialize-textarea validate"><%= list.case.make %> <%= list.case.name %></textarea>
                   <label for="textarea1">Case Selection</label>
+                </div>
+                <div class="input-field col s12">
+                  <textarea id="textarea1" name="monitor" class="materialize-textarea validate"><%= list.monitor.make %> <%= list.monitor.name %> <%= list.monitor.size %></textarea>
+                  <label for="textarea1">Monitor Selection</label>
                 </div>
                 <div class="input-field col s12">
                   <input type="number" class="validate" name="price" required>

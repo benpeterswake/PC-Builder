@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Post = require('../models/post.js');
+const List = require('../models/list.js');
 
 router.get('/', (req, res) => {
   Post.find({}, (err, posts) => {
@@ -13,9 +14,12 @@ router.get('/', (req, res) => {
 
 router.get('/new', (req, res) => {
   if(req.session.currentUser){
+    List.find({user_id: req.session.currentUser._id}, (err, list) => {
       res.render('posts/new.ejs', {
-        user: req.session.currentUser
+        user: req.session.currentUser,
+        list: list[0]
       });
+    })
   }else{
     res.redirect('/login')
   }
