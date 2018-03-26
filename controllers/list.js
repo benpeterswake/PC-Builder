@@ -110,4 +110,13 @@ router.put('/case', (req, res) => {
       });
 });
 
+router.put('/monitor', (req, res) => {
+      List.findOneAndUpdate(
+        {user_id: req.session.currentUser._id},
+        { $set: {monitor: { } } },
+        (err, data) => {
+          res.redirect('/list')
+      });
+});
+
 module.exports = router;

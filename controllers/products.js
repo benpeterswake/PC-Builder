@@ -210,11 +210,11 @@ router.put('/case/:name/:make/:price/:link/:id', (req, res) => {
     }
 });
 
-router.put('/monitor/:name/:make/:price/:link/:id', (req, res) => {
+router.put('/monitor/:name/:make/:price/:link/:size/:id', (req, res) => {
     if(req.session.currentUser){
       List.findOneAndUpdate(
         {user_id: req.session.currentUser._id},
-        { $set: {monitor: { name: req.params.name, make: req.params.make, price:req.params.price, link: req.params.link, id: req.params.id} } },
+        { $set: {monitor: { name: req.params.name, make: req.params.make, price:req.params.price, link: req.params.link, size:req.params.size, id: req.params.id} } },
         (err, data) => {
         res.redirect('/list')
       });

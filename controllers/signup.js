@@ -24,7 +24,7 @@ router.post('/new', (req, res) => {
         res.redirect('/signup/error');
       }
     }else{
-      List.create({user_id: user._id }, (err, data) =>{
+      List.create({ user_id: user._id }, (err, data) =>{
         console.log(data);
       });
       console.log('user created: ' + user);

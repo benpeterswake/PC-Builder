@@ -214,7 +214,7 @@
                <td>Monitor</td>
                <% if(monitor.name != undefined){ %>
                <td>
-                   <%= monitor.make %> <%= monitor.name %> <a href="/products/monitor">change</a>
+                   <%= monitor.make %> <%= monitor.name %> <%= monitor.size %> <a href="/products/monitor">change</a>
                </td>
                 <td>$<%= monitor.price %></td><!-- Price !-->
                 <td><a class="waves-effect waves-light blue lighten-1 btn" href="https://www.amazon.com/dp/<%= monitor.link %>" target="_target">Buy</a></td>

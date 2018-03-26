@@ -31,9 +31,9 @@
               <% for(let i=0; i<monitor.length; i++){ %>
                 <tr>
                   <td><%= monitor[i].make %> <%= monitor[i].name %></td>
-                  <td><%= monitor[i].resoluiton %></td>
+                  <td><%= monitor[i].resolution %></td>
                   <td><%= monitor[i].size %></td>
-                  <td><%= monitor[i].price %></td>
+                  <td>$<%= monitor[i].price %></td>
                   <td>
                     <form action="/products/monitor/<%= monitor[i].name %>/<%= monitor[i].make %>/<%= monitor[i].price %>/<%= monitor[i].amazonlink %>/<%= monitor[i].size %>/<%= monitor[i]._id %>?_method=PUT" method="POST">
                       <input type="submit" value="Add">
