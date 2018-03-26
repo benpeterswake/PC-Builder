@@ -8,6 +8,7 @@ const ram = require('../models/parts/ram.js');
 const storage = require('../models/parts/storage.js');
 const psu = require('../models/parts/psu.js');
 const Case = require('../models/parts/case.js');
+const monitor = require('../models/parts/monitor.js');
 const List = require('../models/list.js');
 
 // const PriceFinder = require("price-finder");
@@ -89,6 +90,15 @@ router.get('/case', (req, res) => {
     res.render('./parts/showcase.ejs', {
       user: req.session.currentUser,
       Case: data
+    });
+  });
+});
+
+router.get('/monitor', (req, res) => {
+  monitor.find({}, (err, data) => {
+    res.render('./parts/showmonitor.ejs', {
+      user: req.session.currentUser,
+      monitor: data
     });
   });
 });
@@ -192,6 +202,19 @@ router.put('/case/:name/:make/:price/:link/:id', (req, res) => {
       List.findOneAndUpdate(
         {user_id: req.session.currentUser._id},
         { $set: {case: { name: req.params.name, make: req.params.make, price:req.params.price, link: req.params.link, id: req.params.id} } },
+        (err, data) => {
+        res.redirect('/list')
+      });
+    }else{
+        res.redirect('/login');
+    }
+});
+
+router.put('/monitor/:name/:make/:price/:link/:id', (req, res) => {
+    if(req.session.currentUser){
+      List.findOneAndUpdate(
+        {user_id: req.session.currentUser._id},
+        { $set: {monitor: { name: req.params.name, make: req.params.make, price:req.params.price, link: req.params.link, id: req.params.id} } },
         (err, data) => {
         res.redirect('/list')
       });

@@ -6,12 +6,13 @@ const Cooler = require('../models/parts/cooler.js');
 const Mobo = require('../models/parts/mobo.js');
 const ram = require('../models/parts/ram.js');
 const Case = require('../models/parts/case.js');
+const monitor = require('../models/parts/monitor.js')
 const List = require('../models/list.js');
 
 router.get('/', (req, res) => {
   if(req.session.currentUser){
     List.findOne({user_id: req.session.currentUser._id}, (err, userlist) => {
-      let parts = [userlist.cpu.price, userlist.gpu.price, userlist.cooler.price, userlist.mobo.price, userlist.ram.price, userlist.storage.price, userlist.psu.price, userlist.case.price];
+      let parts = [userlist.cpu.price, userlist.gpu.price, userlist.cooler.price, userlist.mobo.price, userlist.ram.price, userlist.storage.price, userlist.psu.price, userlist.case.price, userlist.monitor.price];
       let sum = 0;
       for(let i=0; i< parts.length; i++){
         if(parts[i] != undefined){
@@ -28,7 +29,8 @@ router.get('/', (req, res) => {
         storage: userlist.storage,
         psu: userlist.psu,
         Case: userlist.case,
-        total: sum
+        monitor: userlist.monitor,
+        total: sum.toFixed(2)
       });
     });
   }else{

@@ -211,6 +211,28 @@
                <% } %>
              </tr>
              <tr>
+               <td>Monitor</td>
+               <% if(monitor.name != undefined){ %>
+               <td>
+                   <%= monitor.make %> <%= monitor.name %> <a href="/products/monitor">change</a>
+               </td>
+                <td>$<%= monitor.price %></td><!-- Price !-->
+                <td><a class="waves-effect waves-light blue lighten-1 btn" href="https://www.amazon.com/dp/<%= monitor.link %>" target="_target">Buy</a></td>
+                <td>
+                  <form action="list/monitor?_method=PUT" method="POST">
+                        <button type="submit" class="btn red"><i class="material-icons">delete</i></button>
+                  </form>
+                </td>
+               <% }else { %>
+               <td>
+                  <a class="waves-effect waves-light blue lighten-1 btn" href="/products/monitor">Choose Monitor</a>
+               </td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <% } %>
+             </tr>
+             <tr>
                <td></td>
                <td></td>
                <td style="font-weight:bold">Total: $<%= total %></td>

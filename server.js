@@ -14,7 +14,7 @@ const prodcutController = require('./controllers/products.js');
 const listController = require('./controllers/list.js');
 const postController = require('./controllers/posts.js');
 
-//Models
+//part models
 const cpu = require('./models/parts/cpu.js');
 const gpu = require('./models/parts/gpu.js');
 const Cooler = require('./models/parts/cooler.js');
@@ -23,7 +23,9 @@ const Mobo = require('./models/parts/mobo.js');
 const storage = require('./models/parts/storage.js');
 const psu = require('./models/parts/psu.js');
 const Case = require('./models/parts/case.js');
+const monitor = require('./models/parts/monitor.js');
 
+//models
 const User = require('./models/user.js');
 const List = require('./models/list.js');
 const Post = require('./models/post.js');
@@ -181,6 +183,17 @@ app.get('/seedCase', (req, res) => {
     });
 });
 
+const seedMonitor = require('./models/seed/seedMonitor.js');
+app.get('/seedMonitor', (req, res) => {
+      // seeds the data
+    monitor.create(seedMonitor, (err, created) => {
+      console.log(err);
+      // logs created users
+      console.log(created);
+      // redirects to index
+      res.redirect('/');
+    });
+});
 
 app.listen(port, () => {
   console.log('Up on running on ' + port);

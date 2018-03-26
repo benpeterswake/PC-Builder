@@ -52,7 +52,7 @@
               <p><strong>CPU Cooler:</strong></p>
               <p><strong>Motherboard:</strong> This is the body of the computer. It is where all the components are held and powered.</p>
               <p><strong>Graphics Card (GPU):</strong> This is the eyes of the computer. It’s what allows the user to see graphical images on a screen. Most CPU’s come with integrated graphics, which means it uses some of its resources to act like a GPU. However, if you want to game, edit high quality videos or mine data, integrated graphics are not going to cut it. In comes dedicated graphics cards. These are in a way similar to the CPU, however they are designed for heavy graphical and computational workloads. </p>
-              <p><strong>RAM:</strong> The R.A.M. (Random Access Memory) is the arms and hands of the computer. It’s where code gets held while you’re actively running and application. </p>
+              <p><strong>RAM:</strong> The R.A.M. (Random Access Memory) is the arms and hands of the computer. It’s where code gets held while you’re actively running an application. </p>
               <p><strong>Storage:</strong></p>
               <p><strong>Power Supply</strong></p>
               <p><strong>Case:</strong></p>
@@ -71,6 +71,28 @@
         </div>
       </div> -->
     </div>
+
+      <% for(let i = 0; i<tasks.length; i+=3){ %>
+         <div class="row align-items-start">
+           <% for(let i = 0; i < tasks.lenght; i++){ %>
+             <div class="card" style="width: 20rem; text-align:center;display:inline-block;">
+             <h3><a href="/tasks/<%=tasks[i].id; %>"><%=tasks[i].description; %></a></h3>
+             <p>Budget: <%=tasks[i].budget; %></p>
+             <p>Location: <%=tasks[i].location; %></p>
+             <p>Due Date: <%=tasks[i].duedate; %></p>
+             <!-- Edit -->
+             <div>
+             <a href="/tasks/<%=tasks[i].id; %>/edit" class="btn">Edit task</a>
+             </div>
+             <!-- Delete -->
+             <form action="/tasks/<%=tasks[i].id; %>?_method=DELETE" method="POST">
+                 <input class="btn" type="submit" value="Delete"/>
+             </form>
+           <% } %>
+      <% } %>
+
+
+
     <br><br>
   </div> <!--Main container closed !-->
 
